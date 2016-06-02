@@ -8,12 +8,15 @@ require_once "Classes/TicTacToe.php";
 
 if (empty($_GET)) {
     $tictactoe = new TicTacToe(3);
-    $startShape = $tictactoe->player[0]->getShape();
-
+    $turn = 0;
+    $currentShape = $tictactoe->player[$turn]->getShape();
     $_SESSION['game'] = serialize($tictactoe);
+    $_SESSION['turn'] = $turn;
 } else {
     $tictactoe = unserialize($_SESSION['game']);
-
+    $lastturn = $_SESSION['turn'];
+    $turn = $lastturn === 0 ? 1: 0;
+    $currentShape = $tictactoe->player[$turn]->getShape();
     $setCell = str_replace("cell-", "", key($_GET));
     $coordinates = explode("-", $setCell);
 
@@ -21,6 +24,7 @@ if (empty($_GET)) {
     $tictactoe->board->makeMove($coordinates[0]-1, $coordinates[1]-1, $shape);
 
     $_SESSION['game'] = serialize($tictactoe);
+    $_SESSION['turn'] = $turn;
 }
 
 echo "<pre>";
@@ -51,7 +55,7 @@ echo "</pre>";
                     if (!empty($value)) {
                         echo "<td><input type=\"submit\" class=\"reset field color$value\" name=\"cell-$i-$j\" value=\"$value\" /></td>";
                     } else {
-                        echo "<td><input type=\"submit\" class=\"reset field\" name=\"cell-$i-$j\" value=\"X\" /></td>";
+                        echo "<td><input type=\"submit\" class=\"reset field\" name=\"cell-$i-$j\" value=\"$currentShape\" /></td>";
                     }
                 }
                 echo "</tr>";
