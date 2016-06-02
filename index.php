@@ -9,20 +9,16 @@ require_once "Classes/TicTacToe.php";
 if (empty($_GET)) {
     $tictactoe = new TicTacToe(3);
     $tictactoe->initialiseGame();
-
 } else {
     $tictactoe = unserialize($_SESSION['game']);
-    $lastturn = $_SESSION['turn'];
-    $turn = $lastturn === 0 ? 1: 0;
-    $tictactoe->setCurrentShape($tictactoe->player[$turn]->getShape());
-    $setCell = str_replace("cell-", "", key($_GET));
-    $coordinates = explode("-", $setCell);
 
-    $shape = current($_GET);
-    $tictactoe->board->makeMove($coordinates[0]-1, $coordinates[1]-1, $shape);
+    $coordinates = $tictactoe->getParameters();
+    $tictactoe->board->makeMove($coordinates[0]-1, $coordinates[1]-1, $tictactoe->getCurrentShape());
+
+    $tictactoe->setTurn($tictactoe->getTurn() === 0 ? 1: 0);
+    $tictactoe->setCurrentShape($tictactoe->player[$tictactoe->getTurn()]->getShape());
 
     $_SESSION['game'] = serialize($tictactoe);
-    $_SESSION['turn'] = $turn;
 }
 
 echo "<pre>";
