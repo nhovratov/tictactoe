@@ -31,12 +31,12 @@ input.field:hover {
 
 /* X is light red */
 .colorX {
-    color: #e77;
+    color: #e77 !important;
 }
 
 /* O is light blue */
 .colorO {
-    color: #77e;
+    color: #77e !important;
 }
 
 table.tic {

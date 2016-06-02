@@ -2,15 +2,19 @@
 
 class TicTacToe
 {
-    private $board;
-    private $player;
+    public $board;
+    public $player;
     
     public function __construct($boardDimension)
     {
         $this->board = new Board($boardDimension, $boardDimension);
         $this->player = [new Player("Player1", "X"), new Bot("Computer", "O")];
     }
-    
+
+
+    /**
+     * TODO Algorithmus erstellen, um das Spielende zu erkennen
+     */
     public function isFinished()
     {
         
@@ -20,4 +24,5 @@ class TicTacToe
     {
         return $this->board->getRows();
     }
+    
 }
