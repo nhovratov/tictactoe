@@ -14,12 +14,11 @@ class Board
     }
 
     /**
-     * TODO In das grid array einen bestimmten index füllen
      * @param string $x
      * @param string $y
      * @param string $shape
      */
-    public function makeMove($x, $y, string $shape)
+    public function setGrid($x, $y, string $shape)
     {
         $this->grid[$x][$y] = $shape;
     }

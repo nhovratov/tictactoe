@@ -2,14 +2,16 @@
 
 class TicTacToe
 {
+    const DIMENSION = 3;
+    
     public $board;
     public $player;
     private $currentShape;
     private $turn = 0;
     
-    public function __construct($boardDimension)
+    public function __construct()
     {
-        $this->board = new Board($boardDimension, $boardDimension);
+        $this->board = new Board(self::DIMENSION, self::DIMENSION);
         $this->player = [new Player("Player1", "X"), new Bot("Computer", "O")];
     }
 
@@ -35,7 +37,11 @@ class TicTacToe
     
     public function getParameters()
     {
-        return $coordinates = explode("-", str_replace("cell-", "", key($_GET)));
+        $params = explode("-", str_replace("cell-", "", key($_GET)));
+        
+        return array_map(function ($item) {
+            return --$item;
+        }, $params);
     }
 
     public function  getCurrentShape()

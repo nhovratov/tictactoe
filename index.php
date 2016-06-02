@@ -7,22 +7,23 @@ require_once "Classes/Bot.php";
 require_once "Classes/TicTacToe.php";
 
 if (empty($_GET)) {
-    $tictactoe = new TicTacToe(3);
+    $tictactoe = new TicTacToe;
     $tictactoe->initialiseGame();
 } else {
+    // Get the object from the current session
     $tictactoe = unserialize($_SESSION['game']);
-
+    // Execute the move
     $coordinates = $tictactoe->getParameters();
-    $tictactoe->board->makeMove($coordinates[0]-1, $coordinates[1]-1, $tictactoe->getCurrentShape());
-
+    $tictactoe->board->setGrid($coordinates[0], $coordinates[1], $tictactoe->getCurrentShape());
+    // Prepare next move/turn
     $tictactoe->setTurn($tictactoe->getTurn() === 0 ? 1: 0);
     $tictactoe->setCurrentShape($tictactoe->player[$tictactoe->getTurn()]->getShape());
-
+    // Store the object in a session
     $_SESSION['game'] = serialize($tictactoe);
 }
 
 echo "<pre>";
-//var_dump($tictactoe);
+//var_dump($coordinates);
 echo "</pre>";
 ?>
 <!DOCTYPE html>
