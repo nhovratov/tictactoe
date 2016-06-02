@@ -4,6 +4,7 @@ class TicTacToe
 {
     public $board;
     public $player;
+    private $currentShape;
     
     public function __construct($boardDimension)
     {
@@ -25,4 +26,25 @@ class TicTacToe
         return $this->board->getRows();
     }
     
+    public function initialiseGame()
+    {
+        $turn = 0;
+        $this->currentShape = $this->player[$turn]->getShape();
+        $_SESSION['game'] = serialize($this);
+        $_SESSION['turn'] = $turn;
+    }
+
+    public function  getCurrentShape()
+    {
+        return $this->currentShape;
+    }
+
+    /**
+     * @param mixed $currentShape
+     */
+    public function setCurrentShape($currentShape)
+    {
+        $this->currentShape = $currentShape;
+    }
+
 }
