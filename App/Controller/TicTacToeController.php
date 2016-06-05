@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Controller
+class TicTacToeController extends Controller
 {
     /**
      * @var TicTacToe $tictactoe

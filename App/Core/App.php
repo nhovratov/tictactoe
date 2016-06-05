@@ -2,9 +2,9 @@
 
 class App
 {
-    protected $controller = "home";
+    protected $controller = 'TicTacToeController';
 
-    protected $method = "index";
+    protected $method = 'index';
 
     protected $params = [];
 
@@ -12,8 +12,8 @@ class App
     {
         $url = $this->parseUrl();
 
-        if (file_exists("../App/Controller/{$url['controller']}.php")) {
-            $this->controller = $url['controller'];
+        if (file_exists("../App/Controller/{$url['controller']}Controller.php")) {
+            $this->controller = $url['controller'] . 'Controller';
             unset($url['controller']);
         }
 
@@ -28,7 +28,7 @@ class App
         }
 
         $this->params = $url ? array_values($url) : [];
-
+        
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
