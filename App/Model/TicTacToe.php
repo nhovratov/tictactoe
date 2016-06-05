@@ -13,6 +13,7 @@ class TicTacToe
     {
         $this->board = new Board(self::DIMENSION, self::DIMENSION);
         $this->player = [new Player("Player1", "X"), new Bot("Computer", "O")];
+        $this->currentShape = $this->player[0]->getShape();
     }
 
 
@@ -29,11 +30,6 @@ class TicTacToe
         return $this->board->getRows();
     }
     
-    public function initialiseGame()
-    {
-        $this->currentShape = $this->player[$this->turn]->getShape();
-        $_SESSION['game'] = serialize($this);
-    }
     
     public function getParameters()
     {
