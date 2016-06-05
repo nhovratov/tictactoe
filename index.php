@@ -5,10 +5,18 @@ require_once "Classes/Board.php";
 require_once "Classes/Player.php";
 require_once "Classes/Bot.php";
 require_once "Classes/TicTacToe.php";
+/**
+ * @param TicTacToe $tictactoe
+ * @return object
+ */
+function startNewGame(TicTacToe $tictactoe)
+{
+    $tictactoe->initialiseGame();
+    return $tictactoe;
+}
 
 if (empty($_GET)) {
-    $tictactoe = new TicTacToe;
-    $tictactoe->initialiseGame();
+    $tictactoe = startNewGame(new TicTacToe);
 } else {
     // Get the object from the current session
     $tictactoe = unserialize($_SESSION['game']);
