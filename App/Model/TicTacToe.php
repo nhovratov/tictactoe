@@ -30,15 +30,6 @@ class TicTacToe
         return $this->board->getRows();
     }
     
-    
-    public function getParameters()
-    {
-        $params = explode("-", str_replace("cell-", "", key($_GET)));
-        
-        return array_map(function ($item) {
-            return --$item;
-        }, $params);
-    }
 
     public function  getCurrentShape()
     {

@@ -12,18 +12,18 @@ class App
     {
         $url = $this->parseUrl();
 
-        if (file_exists("../App/Controller/{$url[0]}.php")) {
-            $this->controller = $url[0];
-            unset($url[0]);
+        if (file_exists("../App/Controller/{$url['controller']}.php")) {
+            $this->controller = $url['controller'];
+            unset($url['controller']);
         }
 
         require_once "../App/Controller/$this->controller.php";
         $this->controller = new $this->controller;
 
-        if (isset($url[1])) {
-            if (method_exists($this->controller, $url[1])) {
-                $this->method = $url[1];
-                unset($url[1]);
+        if (isset($url['action'])) {
+            if (method_exists($this->controller, $url['action'])) {
+                $this->method = $url['action'];
+                unset($url['action']);
             }
         }
 
@@ -34,10 +34,6 @@ class App
 
     public function parseUrl()
     {
-        if (isset($_GET['url'])) {
-            return explode("/", filter_var(rtrim($_GET['url'], "/"), FILTER_SANITIZE_URL));
-        }
-
-        return false;
+        return $_GET['tictactoe'] ?? $_GET['tictactoe'] ?? false;
     }
 }
