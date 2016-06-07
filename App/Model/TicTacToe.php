@@ -29,7 +29,8 @@ class TicTacToe
     }
 
     /**
-     * TODO Algorithmus erstellen, um das Spielende zu erkennen
+     * checks if the game has ended and echoes a success message
+     * @return bool
      */
     public function isFinished()
     {
