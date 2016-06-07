@@ -41,13 +41,16 @@ class TicTacToe
     {
         $grid = $this->getBoard()->getGrid();
         $length = TicTacToe::DIMENSION;
-        $findPlayerByShape = function ($shape) {
-            $key = array_search($shape, $this->shapes);
-            return $this->players[$key]->getName();
+        $findPlayerIdByShape = function ($shape) {
+            return array_search($shape, $this->shapes);
         };
-        $message = function($shape) use ($findPlayerByShape) {
-            $winner = $findPlayerByShape($shape);
-            return "<div class='alert alert-success'>$winner ($shape) has won!</div>";
+        $message = function($shape) use ($findPlayerIdByShape) {
+            $winner = $this->players[$findPlayerIdByShape($shape)];
+            $name = $winner->getName();
+            if (get_class($winner) === "Bot")
+                return "<div class='alert alert-danger'>$name ($shape) has won!</div>";
+            else
+                return "<div class='alert alert-success'>$name ($shape) has won!</div>";
         };
         $tied = "<div class='alert alert-info'>It's a tight!</div>";
         $checkLinear = function ($orientation) use ($grid, $length, $message) {

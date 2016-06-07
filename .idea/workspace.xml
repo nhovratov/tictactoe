@@ -38,8 +38,8 @@
       <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="288">
+              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -430,7 +430,7 @@
       <workItem from="1465148587278" duration="927000" />
       <workItem from="1465278754172" duration="22460000" />
       <workItem from="1465306590289" duration="3756000" />
-      <workItem from="1465317975873" duration="4158000" />
+      <workItem from="1465317975873" duration="4557000" />
     </task>
     <task id="LOCAL-00001" summary="Add classes">
       <created>1464684434069</created>
@@ -656,11 +656,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465322090800</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Exchange winnermessage name with real player name">
+      <created>1465322183459</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1465322183459</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70771000" />
+    <option name="totallyTimeSpent" value="71170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -1091,8 +1098,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="288">
+          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
           <folding />
         </state>
       </provider>
