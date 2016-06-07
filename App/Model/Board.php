@@ -47,15 +47,6 @@ class Board
     }
 
     /**
-     * @param int $rows
-     * @param int $cols
-     */
-    public function resetGrid($rows, $cols)
-    {
-        $this->grid = $this->createGrid($rows, $cols);
-    }
-
-    /**
      * @param string $x
      * @param string $y
      * @param string $shape

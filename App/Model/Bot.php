@@ -3,7 +3,6 @@
 class Bot extends Player
 {
     /**
-     * TODO Eine Funktion entwerfen, um das automatische setzen eines Spielzuges zu ermöglichen
      * @param Board $board
      */
     public function makeAutoTurn(Board $board)

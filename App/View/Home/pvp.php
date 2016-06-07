@@ -2,16 +2,16 @@
 <section class="container">
     <h1>Tic-Tac-Toe</h1>
     <article id="mainContent">
-        <h2>Viel Spaß beim Spiel!</h2>
+        <h2>Spieler gegen Spieler</h2>
         <p>Wähle ein Feld. Wer zuerst 3 Formen in der Reihe hat gewinnt.</p>
 <?php
 if (!empty($data['message'])):
-    echo "<div class='alert alert-success'>{$data['message']}</div>";
+    echo "{$data['message']}";
 endif;
 ?>
         <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
             <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
-            <input type="hidden" name="tictactoe[action]" value="makeMove" />
+            <input type="hidden" name="tictactoe[action]" value="playerVsPlayer" />
             <table class="tic">
 <?php
 for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
@@ -52,7 +52,7 @@ for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
     </article>
     <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
         <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
-        <input type="hidden" name="tictactoe[action]" value="resetBoard" />
+        <input type="hidden" name="tictactoe[action]" value="initiatePvP" />
         <input type="submit" value="New Game" class="btn btn-primary" />
     </form>
 </section>

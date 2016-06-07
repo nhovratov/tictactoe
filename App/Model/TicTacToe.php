@@ -16,29 +16,31 @@ class TicTacToe
     /** @var string $currentShape */
     protected $currentShape = '';
     
-    /** @var string $turn */
-    protected $turn = '';
-    
+    /** @var int $turn */
+    protected $turn = 0;
+
+    /** TODO Add possibility to register 2 Players */
     public function __construct()
     {
         $this->board = new Board(self::DIMENSION, self::DIMENSION);
         $this->player = new Player("Player", "X");
         $this->bot = new Bot("Computer", "O");
         $this->currentShape = $this->player->getShape();
-        $this->turn = 'player';
+        $this->turn = 0;
     }
 
     /**
-     * checks if the game has ended and echoes a success message
-     * @return bool
+     * checks if the game has ended and returns a message
+     * @return mixed
      */
     public function isFinished()
     {
         $grid = $this->getBoard()->getGrid();
         $length = TicTacToe::DIMENSION;
         $message = function($shape) {
-            return "Player $shape has won!";
+            return "<div class='alert alert-success'>Player $shape has won!</div>";
         };
+        $tied = "<div class='alert alert-info'>It's a tight!</div>";
         $checkLinear = function ($orientation) use ($grid, $length, $message) {
             for ($i = 0; $i < $length; $i++) {
                 if ($orientation === "horizontal")
@@ -93,7 +95,15 @@ class TicTacToe
 
         $result = $checkDiagonal("bottomleft");
         if ($result) return $result;
-        else return false;
+        else if ($this->turn === ($length * $length))
+            return $tied;
+        else
+            return false;
+    }
+
+    public function increaseTurn()
+    {
+        $this->turn++;
     }
     
     /**
@@ -113,7 +123,7 @@ class TicTacToe
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getTurn()
     {
@@ -121,7 +131,7 @@ class TicTacToe
     }
 
     /**
-     * @param string $turn
+     * @param int $turn
      */
     public function setTurn($turn)
     {

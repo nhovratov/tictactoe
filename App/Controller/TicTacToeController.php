@@ -12,12 +12,18 @@ class TicTacToeController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function initiatePvP()
     {
         $this->tictactoe = $this->model('TicTacToe');
         $_SESSION['game'] = serialize($this->tictactoe);
+        $this->view('home/pvp', ['tictactoe' => $this->tictactoe]);
+    }
 
-        $this->view('home/index', ['tictactoe' => $this->tictactoe]);
+    public function initiatePvCom()
+    {
+        $this->tictactoe = $this->model('TicTacToe');
+        $_SESSION['game'] = serialize($this->tictactoe);
+        $this->view('home/pvcom', ['tictactoe' => $this->tictactoe]);
     }
 
     /**
@@ -26,38 +32,47 @@ class TicTacToeController extends Controller
      * @param $move
      * @return void
      */
-    public function makeMove($move)
+    public function playerVsCom($move)
     {
         $this->tictactoe = unserialize($_SESSION['game']);
-        //Set the chosen field
+        //Player move
         $coordinates = $this->tictactoe->getBoard()->getParameters($move);
-//        $this->tictactoe->getBoard()->setGrid($coordinates[0], $coordinates[1], $this->tictactoe->getCurrentShape());
         $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
-        //Computer move
-        $this->tictactoe->getBot()->makeAutoTurn($this->tictactoe->getBoard());
-        //check status
+        $this->tictactoe->increaseTurn();
         $message = $this->tictactoe->isFinished();
-        //next turn
-//        $this->tictactoe->setTurn($this->tictactoe->getTurn() === 'player' ? 'bot' : 'player');
-        
-//        if ($this->tictactoe->getTurn() === 'player')
-//            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
-//        else
-//            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
-        
+
+        if (empty($message)) {
+            //Computer move
+            $this->tictactoe->getBot()->makeAutoTurn($this->tictactoe->getBoard());
+            $message = $this->tictactoe->isFinished();
+            $this->tictactoe->increaseTurn();
+        }
+
         $_SESSION['game'] = serialize($this->tictactoe);
 
-        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message]);
+        $this->view('home/pvcom', ['tictactoe' => $this->tictactoe, 'message' => $message]);
     }
 
-    public function resetBoard()
+
+    public function playerVsPlayer($move)
     {
         $this->tictactoe = unserialize($_SESSION['game']);
-        $this->tictactoe->getBoard()->resetGrid(TicTacToe::DIMENSION, TicTacToe::DIMENSION);
-        $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
-        $this->tictactoe->setTurn('player');
+        //Player move
+        $coordinates = $this->tictactoe->getBoard()->getParameters($move);
+        if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
+            $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
+        }
+        else {
+            $this->tictactoe->getBot()->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
+        }
+        $this->tictactoe->increaseTurn();
+        $message = $this->tictactoe->isFinished();
+
         $_SESSION['game'] = serialize($this->tictactoe);
-        $this->view('home/index', ['tictactoe' => $this->tictactoe]);
+
+        $this->view('home/pvp', ['tictactoe' => $this->tictactoe, 'message' => $message]);
     }
     
 }

@@ -4,7 +4,7 @@ class App
 {
     protected $controller = 'TicTacToeController';
 
-    protected $method = 'index';
+    protected $method = 'initiatePvCom';
 
     protected $params = [];
 
@@ -28,7 +28,6 @@ class App
         }
 
         $this->params = $url ? array_values($url) : [];
-        
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
