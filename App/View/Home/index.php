@@ -1,9 +1,14 @@
 <?php include_once "../App/View/Layout/header.inc.php" ?>
-<section>
+<section class="container">
     <h1>Tic-Tac-Toe</h1>
     <article id="mainContent">
         <h2>Viel Spaß beim Spiel!</h2>
         <p>Wähle ein Feld. Wer zuerst 3 Formen in der Reihe hat gewinnt.</p>
+<?php
+if (!empty($data['message'])):
+    echo "<div class='alert alert-success'>{$data['message']}</div>";
+endif;
+?>
         <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
             <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
             <input type="hidden" name="tictactoe[action]" value="makeMove" />
@@ -21,7 +26,16 @@ for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
                     name='tictactoe[params][cell-$i-$j]' 
                     value='$value' 
                 /></td>";
-        } else {
+        } elseif (!empty($data['message'])) {
+            echo "<td><input 
+                    disabled='disabled'
+                    type='submit'
+                    class='reset field'
+                    name='tictactoe[params][cell-$i-$j]'
+                    value=''
+                 /></td>";
+        }
+        else {
             echo "<td><input 
                     type='submit' 
                     class='reset field' 
@@ -39,7 +53,7 @@ for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
     <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
         <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
         <input type="hidden" name="tictactoe[action]" value="resetBoard" />
-        <input type="submit" value="reset" />
+        <input type="submit" value="New Game" class="btn btn-primary" />
     </form>
 </section>
 <?php include_once "../App/View/Layout/footer.inc.php" ?>

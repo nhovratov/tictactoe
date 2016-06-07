@@ -33,7 +33,7 @@ class TicTacToeController extends Controller
         $coordinates = $this->tictactoe->getBoard()->getParameters($move);
         $this->tictactoe->getBoard()->setGrid($coordinates[0], $coordinates[1], $this->tictactoe->getCurrentShape());
         //check status
-        $this->tictactoe->isFinished();
+        $message = $this->tictactoe->isFinished();
         //next turn
         $this->tictactoe->setTurn($this->tictactoe->getTurn() === 'player' ? 'bot' : 'player');
         
@@ -44,7 +44,7 @@ class TicTacToeController extends Controller
         
         $_SESSION['game'] = serialize($this->tictactoe);
 
-        $this->view('home/index', ['tictactoe' => $this->tictactoe]);
+        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message]);
     }
 
     public function resetBoard()

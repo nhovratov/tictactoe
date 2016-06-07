@@ -37,7 +37,7 @@ class TicTacToe
         $grid = $this->getBoard()->getGrid();
         $length = TicTacToe::DIMENSION;
         $message = function($shape) {
-            echo "Player $shape has won!";
+            return "Player $shape has won!";
         };
         $checkLinear = function ($orientation) use ($grid, $length, $message) {
             for ($i = 0; $i < $length; $i++) {
@@ -56,8 +56,7 @@ class TicTacToe
                         else
                             continue 2;
                     }
-                    $message($shape);
-                    return true;
+                    return $message($shape);
                 }
             }
             return false;
@@ -78,15 +77,23 @@ class TicTacToe
                     else
                         return false;
                 }
-                $message($shape);
-                return true;
+                return $message($shape);
             }
             return false;
         };
-        $checkLinear("horizontal");
-        $checkLinear("vertical");
-        $checkDiagonal("topleft");
-        $checkDiagonal("bottomleft");
+
+        $result = $checkLinear("horizontal");
+        if ($result) return $result;
+
+        $result = $checkLinear("vertical");
+        if ($result) return $result;
+        
+        $result = $checkDiagonal("topleft");
+        if ($result) return $result;
+
+        $result = $checkDiagonal("bottomleft");
+        if ($result) return $result;
+        else return false;
     }
     
     /**
