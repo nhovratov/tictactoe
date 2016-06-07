@@ -27,6 +27,31 @@ class TicTacToeController extends Controller
     }
 
     /**
+     * @param $move
+     */
+    public function playerVsPlayer($move)
+    {
+        $this->tictactoe = unserialize($_SESSION['game']);
+
+        $coordinates = $this->tictactoe->getBoard()->getParameters($move);
+        //Spieler 1 fängt immer an.
+        if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
+            $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
+        }
+        //Automatischer Spielzug des Computers
+        else {
+            $this->tictactoe->getBot()->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
+        }
+        $this->tictactoe->increaseTurn();
+        $message = $this->tictactoe->isFinished();
+
+        $_SESSION['game'] = serialize($this->tictactoe);
+
+        $this->view('home/pvp', ['tictactoe' => $this->tictactoe, 'message' => $message]);
+    }
+    /**
      * executes a move
      *
      * @param $move
@@ -54,25 +79,5 @@ class TicTacToeController extends Controller
     }
 
 
-    public function playerVsPlayer($move)
-    {
-        $this->tictactoe = unserialize($_SESSION['game']);
-        //Player move
-        $coordinates = $this->tictactoe->getBoard()->getParameters($move);
-        if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
-            $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
-            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
-        }
-        else {
-            $this->tictactoe->getBot()->makeTurn($this->tictactoe->getBoard(), $coordinates);
-            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
-        }
-        $this->tictactoe->increaseTurn();
-        $message = $this->tictactoe->isFinished();
 
-        $_SESSION['game'] = serialize($this->tictactoe);
-
-        $this->view('home/pvp', ['tictactoe' => $this->tictactoe, 'message' => $message]);
-    }
-    
 }

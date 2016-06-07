@@ -1,6 +1,11 @@
 <?php include_once "../App/View/Layout/header.inc.php" ?>
 <section class="container">
     <h1>Tic-Tac-Toe</h1>
+    <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
+        <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
+        <input type="hidden" name="tictactoe[action]" value="initiatePvCom" />
+        <input type="submit" class="btn" value="Wechsle zu Spieler gegen Com." />
+    </form>
     <article id="mainContent">
         <h2>Spieler gegen Spieler</h2>
         <p>Wähle ein Feld. Wer zuerst 3 Formen in der Reihe hat gewinnt.</p>
