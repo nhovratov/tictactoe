@@ -40,36 +40,34 @@ class TicTacToe
         $message = function($shape) {
             echo "Player $shape has won!";
         };
-        //waagercht prüfen
-        for ($row = 0; $row < $length; $row++) {
-            $shape = $grid[$row][0];
-            if (!empty($shape)) {
-                for ($col = 1; $col < $length; $col++) {
-                    if ($grid[$row][$col] === $shape) {
-                        continue;
-                    } else {
-                        continue 2;
+        $checkLinear = function ($orientation) use ($grid, $length, $message) {
+            for ($i = 0; $i < $length; $i++) {
+                if ($orientation === "horizontal")
+                    $shape = $grid[$i][0];
+                else
+                    $shape = $grid[0][$i];
+                if (!empty($shape)) {
+                    for ($j = 1; $j < $length; $j++) {
+                        if ($orientation === "horizontal")
+                            $compare = $grid[$i][$j];
+                        else
+                            $compare = $grid[$j][$i];
+                        if ($compare === $shape) {
+                            continue;
+                        } else {
+                            continue 2;
+                        }
                     }
+                    $message($shape);
+                    return true;
                 }
-                $message($shape);
-                return true;
             }
-        }
-        //senkrecht prüfen
-        for ($col = 0; $col < $length; $col++) {
-            $shape = $grid[0][$col];
-            if (!empty($shape)) {
-                for ($row = 1; $row < $length; $row++) {
-                    if ($grid[$row][$col] === $shape) {
-                        continue;
-                    } else {
-                        continue 2;
-                    }
-                }
-                $message($shape);
-                return true;
-            }
-        }
+            return false;
+        };
+
+        $checkLinear("horizontal");
+        $checkLinear("vertical");
+        
         //diagonal oben link nach unten rechts
         $shape = $grid[0][0];
         for ($rowcol = 1; $rowcol < $length; $rowcol++) {
