@@ -32,6 +32,8 @@ class TicTacToeController extends Controller
         //Set the chosen field
         $coordinates = $this->tictactoe->getBoard()->getParameters($move);
         $this->tictactoe->getBoard()->setGrid($coordinates[0], $coordinates[1], $this->tictactoe->getCurrentShape());
+        //check status
+        $this->tictactoe->isFinished();
         //next turn
         $this->tictactoe->setTurn($this->tictactoe->getTurn() === 'player' ? 'bot' : 'player');
         

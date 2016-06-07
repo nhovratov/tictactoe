@@ -33,7 +33,75 @@ class TicTacToe
      */
     public function isFinished()
     {
-
+        $grid = $this->getBoard()->getGrid();
+        $var = false;
+        $length = TicTacToe::DIMENSION;
+        $message = function($shape) {
+            echo "Player $shape has won!";
+        };
+        //waagercht prüfen
+        for ($row = 0; $row < $length; $row++) {
+            $shape = $grid[$row][0];
+            if (!empty($shape)) {
+                for ($col = 1; $col < $length; $col++) {
+                    if ($grid[$row][$col] === $shape) {
+                        continue;
+                    } else {
+                        continue 2;
+                    }
+                }
+                $message($shape);
+                return true;
+            }
+        }
+        //senkrecht prüfen
+        for ($col = 0; $col < $length; $col++) {
+            $shape = $grid[0][$col];
+            if (!empty($shape)) {
+                for ($row = 1; $row < $length; $row++) {
+                    if ($grid[$row][$col] === $shape) {
+                        continue;
+                    } else {
+                        continue 2;
+                    }
+                }
+                $message($shape);
+                return true;
+            }
+        }
+        //diagonal oben link nach unten rechts
+        $shape = $grid[0][0];
+        for ($rowcol = 1; $rowcol < $length; $rowcol++) {
+            if (!empty($shape)) {
+                if ($grid[$rowcol][$rowcol] === $shape) {
+                    $var = true;
+                } else {
+                    $var = false;
+                    break;
+                }
+            }
+        }
+        if ($var) {
+            $message($shape);
+            return true;
+        }
+        //diagonal unten links nach oben rechts
+        $shape = $grid[$length-1][0];
+        for ($i = 1; $i < $length; $i++) {
+            if (!empty($shape)) {
+                if ($grid[($length-1)-$i][$i] === $shape) {
+                    $var = true;
+                } else {
+                    $var = false;
+                    break;
+                }
+            }
+        }
+        if ($var) {
+            $message($shape);
+            return true;
+        }
+        return false;
     }
     
     /**
