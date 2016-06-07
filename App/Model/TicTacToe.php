@@ -35,7 +35,6 @@ class TicTacToe
     public function isFinished()
     {
         $grid = $this->getBoard()->getGrid();
-        $var = false;
         $length = TicTacToe::DIMENSION;
         $message = function($shape) {
             echo "Player $shape has won!";
@@ -52,11 +51,10 @@ class TicTacToe
                             $compare = $grid[$i][$j];
                         else
                             $compare = $grid[$j][$i];
-                        if ($compare === $shape) {
+                        if ($compare === $shape)
                             continue;
-                        } else {
+                        else
                             continue 2;
-                        }
                     }
                     $message($shape);
                     return true;
@@ -64,43 +62,31 @@ class TicTacToe
             }
             return false;
         };
-
+        $checkDiagonal = function ($orientation) use ($grid, $length, $message) {
+            if ($orientation === "topleft")
+                $shape = $grid[0][0];
+            else
+                $shape = $grid[$length-1][0];
+            if (!empty($shape)) {
+                for ($i = 1; $i < $length; $i++) {
+                    if ($orientation === "topleft")
+                        $compare = $grid[$i][$i];
+                    else
+                        $compare = $grid[($length-1)-$i][$i];
+                    if ($compare === $shape)
+                        continue;
+                    else
+                        return false;
+                }
+                $message($shape);
+                return true;
+            }
+            return false;
+        };
         $checkLinear("horizontal");
         $checkLinear("vertical");
-        
-        //diagonal oben link nach unten rechts
-        $shape = $grid[0][0];
-        for ($rowcol = 1; $rowcol < $length; $rowcol++) {
-            if (!empty($shape)) {
-                if ($grid[$rowcol][$rowcol] === $shape) {
-                    $var = true;
-                } else {
-                    $var = false;
-                    break;
-                }
-            }
-        }
-        if ($var) {
-            $message($shape);
-            return true;
-        }
-        //diagonal unten links nach oben rechts
-        $shape = $grid[$length-1][0];
-        for ($i = 1; $i < $length; $i++) {
-            if (!empty($shape)) {
-                if ($grid[($length-1)-$i][$i] === $shape) {
-                    $var = true;
-                } else {
-                    $var = false;
-                    break;
-                }
-            }
-        }
-        if ($var) {
-            $message($shape);
-            return true;
-        }
-        return false;
+        $checkDiagonal("topleft");
+        $checkDiagonal("bottomleft");
     }
     
     /**
