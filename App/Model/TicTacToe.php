@@ -7,8 +7,8 @@ class TicTacToe
     /** @var Board $board  */
     protected $board = null;
     
-    /** @var Player $player */
-    protected $player = null;
+    /** @var array $player */
+    protected $player = [];
     
     /** @var Bot $bot */
     protected $bot = null;
@@ -19,13 +19,17 @@ class TicTacToe
     /** @var int $turn */
     protected $turn = 0;
 
-    /** TODO Add possibility to register 2 Players */
-    public function __construct()
+    /**
+     * @param $mode
+     */
+    public function __construct($mode)
     {
         $this->board = new Board(self::DIMENSION, self::DIMENSION);
-        $this->player = new Player("Player", "X");
-        $this->bot = new Bot("Computer", "O");
-        $this->currentShape = $this->player->getShape();
+        if ($mode === "pvp")
+            $this->player = [new Player("Player1", "X"), new Player("Player2", "O")];
+        else
+            $this->player = [new Player("Player1", "X"), new Bot("TicTacToe-Bot", "O")];
+        $this->currentShape = $this->player[0]->getShape();
         $this->turn = 0;
     }
 
@@ -147,11 +151,12 @@ class TicTacToe
     }
 
     /**
+     * @param $x
      * @return Player
      */
-    public function getPlayer()
+    public function getPlayer($x)
     {
-        return $this->player;
+        return $this->player[$x];
     }
 
     /**

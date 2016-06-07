@@ -57,7 +57,7 @@ for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
     </article>
     <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
         <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
-        <input type="hidden" name="tictactoe[action]" value="index" />
+        <input type="hidden" name="tictactoe[action]" value="initiatePvCom" />
         <input type="submit" value="New Game" class="btn btn-primary" />
     </form>
 </section>

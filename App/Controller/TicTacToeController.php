@@ -14,14 +14,14 @@ class TicTacToeController extends Controller
      */
     public function initiatePvP()
     {
-        $this->tictactoe = $this->model('TicTacToe');
+        $this->tictactoe = $this->model('TicTacToe', 'pvp');
         $_SESSION['game'] = serialize($this->tictactoe);
         $this->view('home/pvp', ['tictactoe' => $this->tictactoe]);
     }
 
     public function initiatePvCom()
     {
-        $this->tictactoe = $this->model('TicTacToe');
+        $this->tictactoe = $this->model('TicTacToe', 'pvcom');
         $_SESSION['game'] = serialize($this->tictactoe);
         $this->view('home/pvcom', ['tictactoe' => $this->tictactoe]);
     }
@@ -36,13 +36,13 @@ class TicTacToeController extends Controller
         $coordinates = $this->tictactoe->getBoard()->getParameters($move);
         //Spieler 1 fängt immer an.
         if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
-            $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
-            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
+            $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(1)->getShape());
         }
         //Automatischer Spielzug des Computers
         else {
-            $this->tictactoe->getBot()->makeTurn($this->tictactoe->getBoard(), $coordinates);
-            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
+            $this->tictactoe->getPlayer(1)->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(0)->getShape());
         }
         $this->tictactoe->increaseTurn();
         $message = $this->tictactoe->isFinished();
@@ -62,13 +62,13 @@ class TicTacToeController extends Controller
         $this->tictactoe = unserialize($_SESSION['game']);
         //Player move
         $coordinates = $this->tictactoe->getBoard()->getParameters($move);
-        $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
+        $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
         $this->tictactoe->increaseTurn();
         $message = $this->tictactoe->isFinished();
 
-        if (empty($message)) {
+        if (empty($message)) { //Check whether the game has aleready ended, so the computer dont need to make a move
             //Computer move
-            $this->tictactoe->getBot()->makeAutoTurn($this->tictactoe->getBoard());
+            $this->tictactoe->getPlayer(1)->makeAutoTurn($this->tictactoe->getBoard());
             $message = $this->tictactoe->isFinished();
             $this->tictactoe->increaseTurn();
         }

@@ -4,7 +4,7 @@ class App
 {
     protected $controller = 'TicTacToeController';
 
-    protected $method = 'initiatePvCom';
+    protected $method = 'initiatePvP';
 
     protected $params = [];
 
