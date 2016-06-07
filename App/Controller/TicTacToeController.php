@@ -31,16 +31,19 @@ class TicTacToeController extends Controller
         $this->tictactoe = unserialize($_SESSION['game']);
         //Set the chosen field
         $coordinates = $this->tictactoe->getBoard()->getParameters($move);
-        $this->tictactoe->getBoard()->setGrid($coordinates[0], $coordinates[1], $this->tictactoe->getCurrentShape());
+//        $this->tictactoe->getBoard()->setGrid($coordinates[0], $coordinates[1], $this->tictactoe->getCurrentShape());
+        $this->tictactoe->getPlayer()->makeTurn($this->tictactoe->getBoard(), $coordinates);
+        //Computer move
+        $this->tictactoe->getBot()->makeAutoTurn($this->tictactoe->getBoard());
         //check status
         $message = $this->tictactoe->isFinished();
         //next turn
-        $this->tictactoe->setTurn($this->tictactoe->getTurn() === 'player' ? 'bot' : 'player');
+//        $this->tictactoe->setTurn($this->tictactoe->getTurn() === 'player' ? 'bot' : 'player');
         
-        if ($this->tictactoe->getTurn() === 'player')
-            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
-        else
-            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
+//        if ($this->tictactoe->getTurn() === 'player')
+//            $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer()->getShape());
+//        else
+//            $this->tictactoe->setCurrentShape($this->tictactoe->getBot()->getShape());
         
         $_SESSION['game'] = serialize($this->tictactoe);
 

@@ -2,9 +2,9 @@
 
 class Player
 {
-    private $score = [];
-    private $name = "";
-    private $shape = "";
+    protected $score = [];
+    protected $name = "";
+    protected $shape = "";
     
     public function __construct($name, $shape)
     {
@@ -15,5 +15,10 @@ class Player
     public function getShape() 
     {
         return $this->shape;
+    }
+    
+    public function makeTurn(Board $board, $coordinates)
+    {
+        $board->setGrid($coordinates[0], $coordinates[1], $this->getShape());
     }
 }
