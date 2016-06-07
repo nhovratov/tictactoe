@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f44864a9-dc34-4e8b-8920-1e07b4c64ca0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller/TicTacToeController.php" afterPath="$PROJECT_DIR$/App/Controller/TicTacToeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Core/App.php" afterPath="$PROJECT_DIR$/App/Core/App.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Core/Controller.php" afterPath="$PROJECT_DIR$/App/Core/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/TicTacToe.php" afterPath="$PROJECT_DIR$/App/Model/TicTacToe.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/View/Home/pvcom.php" afterPath="$PROJECT_DIR$/App/View/Home/pvcom.php" />
     </list>
     <ignored path="TicTacToe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,9 +38,26 @@
       <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="168">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pvp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/View/Home/pvp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+              <folding>
+                <marker date="1465321051854" expanded="true" signature="1206:1456" ph="..." />
+                <marker date="1465321051854" expanded="true" signature="1213:1451" ph="..." />
+                <marker date="1465321051854" expanded="true" signature="1527:1759" ph="..." />
+                <marker date="1465321051854" expanded="true" signature="1534:1754" ph="..." />
+                <marker date="1465321051854" expanded="true" signature="1809:2043" ph="..." />
+                <marker date="1465321051854" expanded="true" signature="1816:2038" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,6 +77,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -102,17 +125,17 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/App/Controller/Home.php" />
         <option value="$PROJECT_DIR$/App/View/Layout/header.inc.php" />
-        <option value="$PROJECT_DIR$/App/Model/Player.php" />
         <option value="$PROJECT_DIR$/App/Model/Board.php" />
         <option value="$PROJECT_DIR$/App/View/Home/PlayerVsBot.php" />
         <option value="$PROJECT_DIR$/App/View/Home/PlayerVsPlayer.php" />
         <option value="$PROJECT_DIR$/App/View/Home/index.php" />
         <option value="$PROJECT_DIR$/App/Model/Bot.php" />
-        <option value="$PROJECT_DIR$/App/View/Home/pvp.php" />
         <option value="$PROJECT_DIR$/App/Core/App.php" />
         <option value="$PROJECT_DIR$/App/Core/Controller.php" />
         <option value="$PROJECT_DIR$/App/Controller/TicTacToeController.php" />
         <option value="$PROJECT_DIR$/App/View/Home/pvcom.php" />
+        <option value="$PROJECT_DIR$/App/View/Home/pvp.php" />
+        <option value="$PROJECT_DIR$/App/Model/Player.php" />
         <option value="$PROJECT_DIR$/App/Model/TicTacToe.php" />
       </list>
     </option>
@@ -407,7 +430,7 @@
       <workItem from="1465148587278" duration="927000" />
       <workItem from="1465278754172" duration="22460000" />
       <workItem from="1465306590289" duration="3756000" />
-      <workItem from="1465317975873" duration="2706000" />
+      <workItem from="1465317975873" duration="4158000" />
     </task>
     <task id="LOCAL-00001" summary="Add classes">
       <created>1464684434069</created>
@@ -619,11 +642,25 @@
       <option name="project" value="LOCAL" />
       <updated>1465319595081</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="[TODO] Added possiblity to create a game with 2 normal Players">
+      <created>1465320745404</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1465320745404</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Exchange winnermessage name with real player name">
+      <created>1465322090800</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1465322090800</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69319000" />
+    <option name="totallyTimeSpent" value="70771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -683,7 +720,9 @@
     <MESSAGE value="Add bot" />
     <MESSAGE value="Split the makeMove action into 2 seperate actions" />
     <MESSAGE value="Add Link buttons to switch between game modes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Link buttons to switch between game modes" />
+    <MESSAGE value="[TODO] Added possiblity to create a game with 2 normal Players" />
+    <MESSAGE value="Exchange winnermessage name with real player name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exchange winnermessage name with real player name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -988,26 +1027,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Core/App.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Core/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1029,16 +1052,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/View/Home/pvp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="59" column="72" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="72" />
+        <state relative-caret-position="221">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
           <folding>
-            <marker date="1465319055248" expanded="true" signature="1206:1456" ph="..." />
-            <marker date="1465319055248" expanded="true" signature="1213:1451" ph="..." />
-            <marker date="1465319055248" expanded="true" signature="1527:1759" ph="..." />
-            <marker date="1465319055248" expanded="true" signature="1534:1754" ph="..." />
-            <marker date="1465319055248" expanded="true" signature="1809:2043" ph="..." />
-            <marker date="1465319055248" expanded="true" signature="1816:2038" ph="..." />
+            <marker date="1465321051854" expanded="true" signature="1206:1456" ph="..." />
+            <marker date="1465321051854" expanded="true" signature="1213:1451" ph="..." />
+            <marker date="1465321051854" expanded="true" signature="1527:1759" ph="..." />
+            <marker date="1465321051854" expanded="true" signature="1534:1754" ph="..." />
+            <marker date="1465321051854" expanded="true" signature="1809:2043" ph="..." />
+            <marker date="1465321051854" expanded="true" signature="1816:2038" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,10 +1081,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Core/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        <state relative-caret-position="168">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding />
         </state>
       </provider>

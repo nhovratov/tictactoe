@@ -21,4 +21,20 @@ class Player
     {
         $board->setGrid($coordinates[0], $coordinates[1], $this->getShape());
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }

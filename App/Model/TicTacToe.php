@@ -8,16 +8,16 @@ class TicTacToe
     protected $board = null;
     
     /** @var array $player */
-    protected $player = [];
-    
-    /** @var Bot $bot */
-    protected $bot = null;
+    protected $players = [];
     
     /** @var string $currentShape */
     protected $currentShape = '';
     
     /** @var int $turn */
     protected $turn = 0;
+
+    /** @var array $shapes */
+    protected $shapes = ["X", "O"];
 
     /**
      * @param $mode
@@ -26,10 +26,10 @@ class TicTacToe
     {
         $this->board = new Board(self::DIMENSION, self::DIMENSION);
         if ($mode === "pvp")
-            $this->player = [new Player("Player1", "X"), new Player("Player2", "O")];
+            $this->players = [new Player("Player 1", $this->shapes[0]), new Player("Player 2", $this->shapes[1])];
         else
-            $this->player = [new Player("Player1", "X"), new Bot("TicTacToe-Bot", "O")];
-        $this->currentShape = $this->player[0]->getShape();
+            $this->players = [new Player("Player 1", $this->shapes[0]), new Bot("TicTacToe-Bot", $this->shapes[1])];
+        $this->currentShape = $this->players[0]->getShape();
         $this->turn = 0;
     }
 
@@ -41,8 +41,13 @@ class TicTacToe
     {
         $grid = $this->getBoard()->getGrid();
         $length = TicTacToe::DIMENSION;
-        $message = function($shape) {
-            return "<div class='alert alert-success'>Player $shape has won!</div>";
+        $findPlayerByShape = function ($shape) {
+            $key = array_search($shape, $this->shapes);
+            return $this->players[$key]->getName();
+        };
+        $message = function($shape) use ($findPlayerByShape) {
+            $winner = $findPlayerByShape($shape);
+            return "<div class='alert alert-success'>$winner ($shape) has won!</div>";
         };
         $tied = "<div class='alert alert-info'>It's a tight!</div>";
         $checkLinear = function ($orientation) use ($grid, $length, $message) {
@@ -156,15 +161,12 @@ class TicTacToe
      */
     public function getPlayer($x)
     {
-        return $this->player[$x];
+        return $this->players[$x];
     }
 
-    /**
-     * @return Bot
-     */
-    public function getBot()
+    public function getPlayers()
     {
-        return $this->bot;
+        return $this->players;
     }
 
 }
