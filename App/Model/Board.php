@@ -2,9 +2,9 @@
 
 class Board
 {
-    private $grid;
+    protected $grid;
     protected $rows;
-    private $columns;
+    protected $columns;
     
     public function __construct(int $rows, int $columns)
     {
@@ -20,7 +20,7 @@ class Board
      * @param $cols
      * @return array
      */
-    protected function createGrid($row, $cols) {
+    public function createGrid($row, $cols) {
         $grid = [];
         for ($i = 0; $i < $row; $i++) {
             $grid[] = [];
@@ -45,13 +45,14 @@ class Board
             return --$item;
         }, $params);
     }
-    
+
     /**
-     * TODO Das grid array um alle Einträge leeren
+     * @param int $rows
+     * @param int $cols
      */
-    public function resetGrid()
+    public function resetGrid($rows, $cols)
     {
-        
+        $this->grid = $this->createGrid($rows, $cols);
     }
 
     /**
