@@ -45,19 +45,20 @@ class TicTacToe
                     $shape = $grid[$i][0];
                 else
                     $shape = $grid[0][$i];
-                if (!empty($shape)) {
-                    for ($j = 1; $j < $length; $j++) {
-                        if ($orientation === "horizontal")
-                            $compare = $grid[$i][$j];
-                        else
-                            $compare = $grid[$j][$i];
-                        if ($compare === $shape)
-                            continue;
-                        else
-                            continue 2;
-                    }
-                    return $message($shape);
+                if (empty($shape)) continue;
+
+                for ($j = 1; $j < $length; $j++) {
+                    if ($orientation === "horizontal")
+                        $compare = $grid[$i][$j];
+                    else
+                        $compare = $grid[$j][$i];
+
+                    if ($compare === $shape)
+                        continue;
+                    else
+                        continue 2;
                 }
+                return $message($shape);
             }
             return false;
         };
@@ -66,20 +67,19 @@ class TicTacToe
                 $shape = $grid[0][0];
             else
                 $shape = $grid[$length-1][0];
-            if (!empty($shape)) {
-                for ($i = 1; $i < $length; $i++) {
-                    if ($orientation === "topleft")
-                        $compare = $grid[$i][$i];
-                    else
-                        $compare = $grid[($length-1)-$i][$i];
-                    if ($compare === $shape)
-                        continue;
-                    else
-                        return false;
-                }
-                return $message($shape);
+            if (empty($shape)) return false;
+
+            for ($i = 1; $i < $length; $i++) {
+                if ($orientation === "topleft")
+                    $compare = $grid[$i][$i];
+                else
+                    $compare = $grid[($length-1)-$i][$i];
+                if ($compare === $shape)
+                    continue;
+                else
+                    return false;
             }
-            return false;
+            return $message($shape);
         };
 
         $result = $checkLinear("horizontal");
