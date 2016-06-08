@@ -42,3 +42,9 @@ input.field:hover {
 table.tic {
     border-collapse: collapse;
 }
+
+.glyphicon.glyphicon-repeat {
+    font-size: 21px;
+    top: 7px;
+    left: 5px;
+}

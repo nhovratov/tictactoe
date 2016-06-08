@@ -59,6 +59,7 @@ for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
         <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
         <input type="hidden" name="tictactoe[action]" value="initiatePvP" />
         <input type="submit" value="New Game" class="btn btn-primary" />
+        <span class="glyphicon glyphicon-repeat"></span>
     </form>
 </section>
 <?php include_once "../App/View/Layout/footer.inc.php" ?>
