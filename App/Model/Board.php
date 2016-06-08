@@ -15,19 +15,16 @@ class Board
 
     /**
      * Erstellt ein Mehrdimensionales Array mit leeren Strings für jeden Wert
-     * 
-     * @param $row
+     *
+     * @param $rows
      * @param $cols
+     * @param array $grid
      * @return array
      */
-    public function createGrid($row, $cols) {
-        $grid = [];
-        for ($i = 0; $i < $row; $i++) {
-            $grid[] = [];
-            for ($j = 0; $j < $cols; $j++) {
-                array_push($grid[$i], "");
-            }
-        }
+    public function createGrid($rows, $cols, $grid = []) {
+        for ($i = 0; $i < $rows; $i++)
+            $grid[$i] = array_fill(0, $cols, '');
+
         return $grid;
     }
 
