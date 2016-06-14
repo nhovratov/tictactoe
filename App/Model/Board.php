@@ -63,6 +63,16 @@ class Board
         }
         return $diagonals;
     }
+    
+    public function decodeDiagonalCoordinate($row, $col)
+    {
+        $decodeTable = [
+            [[0, 0], [1, 1], [2, 2]],
+            [[0, 2], [1, 1], [2, 0]]
+        ];
+
+        return $decodeTable[$row][$col];
+    }
 
     /**
      * @param string $x

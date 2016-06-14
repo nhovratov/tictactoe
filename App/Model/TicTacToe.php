@@ -28,7 +28,7 @@ class TicTacToe
         if ($mode === "pvp")
             $this->players = [new Player("Player 1", $this->shapes[0]), new Player("Player 2", $this->shapes[1])];
         else
-            $this->players = [new Player("Player 1", $this->shapes[0]), new Bot("TicTacToe-Bot", $this->shapes[1], 1)];
+            $this->players = [new Player("Player 1", $this->shapes[0]), new Bot("TicTacToe-Bot", $this->shapes[1], 2)];
         $this->currentShape = $this->players[0]->getShape();
         $this->turn = 0;
     }

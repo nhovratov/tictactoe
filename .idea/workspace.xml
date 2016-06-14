@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f44864a9-dc34-4e8b-8920-1e07b4c64ca0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/Board.php" afterPath="$PROJECT_DIR$/App/Model/Board.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/Bot.php" afterPath="$PROJECT_DIR$/App/Model/Bot.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/TicTacToe.php" afterPath="$PROJECT_DIR$/App/Model/TicTacToe.php" />
     </list>
     <ignored path="TicTacToe.iws" />
@@ -25,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+            <state relative-caret-position="-612">
+              <caret line="30" column="116" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="116" />
               <folding />
             </state>
           </provider>
@@ -38,18 +40,18 @@
       <file leaf-file-name="Board.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Model/Board.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+            <state relative-caret-position="1258">
+              <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bot.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Bot.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="67" selection-end-column="10" />
+            <state relative-caret-position="527">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -106,13 +108,13 @@
         <option value="$PROJECT_DIR$/App/View/Home/pvcom.php" />
         <option value="$PROJECT_DIR$/App/Model/MiddleBot.php" />
         <option value="$PROJECT_DIR$/App/Controller/TicTacToeController.php" />
-        <option value="$PROJECT_DIR$/App/Model/Bot.php" />
         <option value="$PROJECT_DIR$/App/init.php" />
         <option value="$PROJECT_DIR$/Public/index.php" />
         <option value="$PROJECT_DIR$/App/autoload.php" />
-        <option value="$PROJECT_DIR$/App/Model/Board.php" />
         <option value="$PROJECT_DIR$/App/Model/Player.php" />
+        <option value="$PROJECT_DIR$/App/Model/Board.php" />
         <option value="$PROJECT_DIR$/App/Model/TicTacToe.php" />
+        <option value="$PROJECT_DIR$/App/Model/Bot.php" />
       </list>
     </option>
   </component>
@@ -332,7 +334,7 @@
       <workItem from="1465400031074" duration="2449000" />
       <workItem from="1465409358219" duration="454000" />
       <workItem from="1465464421304" duration="11159000" />
-      <workItem from="1465883373898" duration="14852000" />
+      <workItem from="1465883373898" duration="16866000" />
     </task>
     <task id="LOCAL-00001" summary="Add classes">
       <created>1464684434069</created>
@@ -656,17 +658,25 @@
       <option name="project" value="LOCAL" />
       <updated>1465902790851</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Refactor is finished">
+      <created>1465903515395</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1465903515395</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100517000" />
+    <option name="totallyTimeSpent" value="102531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22185062" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -680,7 +690,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1058,22 +1067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="67" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Board.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1084,8 +1077,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        <state relative-caret-position="-612">
+          <caret line="30" column="116" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/Board.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
           <folding />
         </state>
       </provider>
