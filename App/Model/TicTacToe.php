@@ -35,13 +35,14 @@ class TicTacToe
 
     private function checkLinear($grid, $message)
     {
-        $length = TicTacToe::DIMENSION;
-        for ($row = 0; $row < $length; $row++) {
+        $rowCount = count($grid);
+        $colCount = TicTacToe::DIMENSION;
+        for ($row = 0; $row < $rowCount; $row++) {
             $shape = $grid[$row][0];
             if (empty($shape)) continue;
 
-            for ($column = 1; $column < $length; $column++) {
-                    $compare = $grid[$row][$column];
+            for ($col = 1; $col < $colCount; $col++) {
+                    $compare = $grid[$row][$col];
                 if ($compare === $shape)
                     continue;
                 else
@@ -122,7 +123,7 @@ class TicTacToe
         $result = $this->checkLinear($this->getBoard()->flipToRight(), $message);
         if ($result) return $result;
 
-        $result = $checkDiagonal("topleft");
+        $result = $this->checkLinear($this->getBoard()->getDiagonals(), $message);
         if ($result) return $result;
 
         $result = $checkDiagonal("bottomleft");

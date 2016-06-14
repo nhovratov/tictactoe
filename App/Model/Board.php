@@ -52,6 +52,17 @@ class Board
         }
         return $flippedGrid;
     }
+    
+    public function getDiagonals()
+    {
+        $count = TicTacToe::DIMENSION;
+        $diagonals = [];
+        for ($row = 0, $col = $count - 1; $row < $count; $row++, $col--) {
+            $diagonals[0][] = $this->getGrid()[$row][$row];
+            $diagonals[1][] = $this->getGrid()[$row][$col];
+        }
+        return $diagonals;
+    }
 
     /**
      * @param string $x
