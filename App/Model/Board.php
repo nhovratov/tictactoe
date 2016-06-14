@@ -42,6 +42,16 @@ class Board
             return --$item;
         }, $params);
     }
+    
+    public function flipToRight()
+    {
+        $count = TicTacToe::DIMENSION;
+        $flippedGrid = [];
+        for ($i = 0; $i < $count; $i++) {
+            $flippedGrid[$i] = array_column($this->grid, $i);
+        }
+        return $flippedGrid;
+    }
 
     /**
      * @param string $x

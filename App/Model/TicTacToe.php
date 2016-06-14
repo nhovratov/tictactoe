@@ -33,6 +33,26 @@ class TicTacToe
         $this->turn = 0;
     }
 
+    private function checkLinear($grid, $message)
+    {
+        $length = TicTacToe::DIMENSION;
+        for ($row = 0; $row < $length; $row++) {
+            $shape = $grid[$row][0];
+            if (empty($shape)) continue;
+
+            for ($column = 1; $column < $length; $column++) {
+                    $compare = $grid[$row][$column];
+                if ($compare === $shape)
+                    continue;
+                else
+                    continue 2;
+            }
+            //If the loop goes through all fields are the same and theres a winner
+            return $message($shape);
+        }
+        return false;
+    }
+
     /**
      * checks if the game has ended and returns a message
      * @return mixed
@@ -96,10 +116,10 @@ class TicTacToe
             return $message($shape);
         };
 
-        $result = $checkLinear("horizontal");
+        $result = $this->checkLinear($grid, $message);
         if ($result) return $result;
 
-        $result = $checkLinear("vertical");
+        $result = $this->checkLinear($this->getBoard()->flipToRight(), $message);
         if ($result) return $result;
 
         $result = $checkDiagonal("topleft");
