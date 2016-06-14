@@ -18,8 +18,7 @@ class Bot extends Player
     {
         if ($this->level === 1)
             $this->makeRandomTurn($board);
-        elseif
-            ($this->level == 2)
+        elseif ($this->level == 2)
             $this->makeFillTurn($board);
     }
     /**
@@ -84,45 +83,61 @@ class Bot extends Player
             return $decodeTable[$row][$col];
         };
 
-        $scanBoardLinear = function (Board $board, $orientation) use ($reverseGrid, $getDiagonalGrid, $decodeDiagonalCoordinate) {
+        $scanBoard = function (Board $board, $orientation)
+            use ($reverseGrid, $getDiagonalGrid, $decodeDiagonalCoordinate) {
+
             if ($orientation === "horizontal")
                 $grid = $board->getGrid();
             elseif ($orientation === "vertical")
                 $grid = $reverseGrid($board->getGrid());
             else
                 $grid = $getDiagonalGrid($board->getGrid());
-            $count = count($grid);
-            for ($i = 0; $i < $count; $i++) {
-                if (in_array($this->getShape(), $grid[$i]) && in_array('', $grid[$i])) {
-                    $values = array_count_values($grid[$i]);
-                    $countBotShape = $values[$this->getShape()];
-                    if ($countBotShape > 1) {
-                        $freePosition = array_search('', $grid[$i]);
 
-                        if ($orientation === "horizontal")
-                            return [$i, $freePosition];
-                        elseif ($orientation === "vertical")
-                            return [$freePosition, $i];
-                        else
-                            return $decodeDiagonalCoordinate($i, $freePosition);
-                    }
+            $count = count($grid);
+            for ($row = 0; $row < $count; $row++) {
+                //the Bots shape is not in the array
+                if (!in_array($this->getShape(), $grid[$row])) {
+                    continue;
                 }
+                //there is no free empty space
+                if (!in_array('', $grid[$row])) {
+                    continue;
+                }
+
+                $values = array_count_values($grid[$row]);
+                $countBotShape = $values[$this->getShape()];
+                //there must be enough shapes
+                if ($countBotShape < $count - 1) {
+                    continue;
+                }
+
+                /*if there is only one empty space left and everything else is the Bots shape, gg!
+                get the free spot */
+                $freeSpot = array_search('', $grid[$row]);
+
+                if ($orientation === "horizontal")
+                    return [$row, $freeSpot];
+                elseif ($orientation === "vertical")
+                    return [$freeSpot, $row];
+                else
+                    return $decodeDiagonalCoordinate($row, $freeSpot);
             }
+
             return false;
         };
 
 
-        if ($coords = $scanBoardLinear($board, "horizontal")) {
+        if ($coords = $scanBoard($board, "horizontal")) {
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
         }
 
-        if ($coords = $scanBoardLinear($board, "vertical")) {
+        if ($coords = $scanBoard($board, "vertical")) {
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
         }
 
-        if ($coords = $scanBoardLinear($board, "diagonal")) {
+        if ($coords = $scanBoard($board, "diagonal")) {
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
         };
