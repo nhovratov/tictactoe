@@ -10,6 +10,10 @@ class Bot extends Player
         $this->level = $level;
     }
 
+    /**
+     * Checks what lvl the Bot has and makes move accordingly
+     * @param Board $board
+     */
     public function makeAutoTurn(Board $board)
     {
         if ($this->level === 1)
@@ -36,7 +40,8 @@ class Bot extends Player
         $board->setGrid($coords[0], $coords[1], $this->shape);
     }
 
-    /** TODO check diagonally
+    /**
+     * Checks if there is a gap which leads to a win when filled
      * @param Board $board
      * @return bool
      */
@@ -46,9 +51,7 @@ class Bot extends Player
             $count = count($grid);
             $newBoard = [];
             for ($i = 0; $i < $count; $i++) {
-                for ($j = 0; $j < $count; $j++) {
-                    $newBoard[$j][] = $grid[$i][$j];
-                }
+                $newBoard[$i] = array_column($grid, $i);
             }
             return $newBoard;
         };
