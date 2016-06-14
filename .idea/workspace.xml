@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f44864a9-dc34-4e8b-8920-1e07b4c64ca0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/Board.php" afterPath="$PROJECT_DIR$/App/Model/Board.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/TicTacToe.php" afterPath="$PROJECT_DIR$/App/Model/TicTacToe.php" />
     </list>
     <ignored path="TicTacToe.iws" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+            <state relative-caret-position="1173">
+              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -51,6 +50,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
               <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="67" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -91,7 +100,6 @@
         <option value="$PROJECT_DIR$/App/View/Home/index.php" />
         <option value="$PROJECT_DIR$/App/Core/App.php" />
         <option value="$PROJECT_DIR$/App/Core/Controller.php" />
-        <option value="$PROJECT_DIR$/App/Model/Player.php" />
         <option value="$PROJECT_DIR$/App/View/Layout/header.inc.php" />
         <option value="$PROJECT_DIR$/App/View/Home/pvp.php" />
         <option value="$PROJECT_DIR$/Public/Css/style.css" />
@@ -103,6 +111,7 @@
         <option value="$PROJECT_DIR$/Public/index.php" />
         <option value="$PROJECT_DIR$/App/autoload.php" />
         <option value="$PROJECT_DIR$/App/Model/Board.php" />
+        <option value="$PROJECT_DIR$/App/Model/Player.php" />
         <option value="$PROJECT_DIR$/App/Model/TicTacToe.php" />
       </list>
     </option>
@@ -192,6 +201,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TicTacToe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TicTacToe" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -305,7 +332,7 @@
       <workItem from="1465400031074" duration="2449000" />
       <workItem from="1465409358219" duration="454000" />
       <workItem from="1465464421304" duration="11159000" />
-      <workItem from="1465883373898" duration="13880000" />
+      <workItem from="1465883373898" duration="14852000" />
     </task>
     <task id="LOCAL-00001" summary="Add classes">
       <created>1464684434069</created>
@@ -615,11 +642,25 @@
       <option name="project" value="LOCAL" />
       <updated>1465901964629</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Add getDiagonals function to the Board class">
+      <created>1465902576112</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1465902576112</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Refactor is finished">
+      <created>1465902790851</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1465902790851</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99545000" />
+    <option name="totallyTimeSpent" value="100517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -659,8 +700,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add default controller&#10;" />
-    <MESSAGE value="Add controller action makeTurn&#10;" />
     <MESSAGE value="Refactor a lot" />
     <MESSAGE value="Rename TicTacToe Controller" />
     <MESSAGE value="Add reset method" />
@@ -684,7 +723,9 @@
     <MESSAGE value="Refactor lvl 1 Bot" />
     <MESSAGE value="Implement autoloader" />
     <MESSAGE value="Add flipToRight function to board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add flipToRight function to board" />
+    <MESSAGE value="Add getDiagonals function to the Board class" />
+    <MESSAGE value="Refactor is finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor is finished" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -969,14 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/MiddleBot.php" />
     <entry file="file://$PROJECT_DIR$/App/View/Home/pvcom.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1041,10 +1074,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
+    <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
           <folding />
         </state>
       </provider>

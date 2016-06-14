@@ -33,7 +33,7 @@ class TicTacToe
         $this->turn = 0;
     }
 
-    private function checkLinear($grid, $message)
+    private function checkLinear($grid)
     {
         $rowCount = count($grid);
         $colCount = TicTacToe::DIMENSION;
@@ -49,7 +49,7 @@ class TicTacToe
                     continue 2;
             }
             //If the loop goes through all fields are the same and theres a winner
-            return $message($shape);
+            return $this->getVictoryMessage($shape);
         }
         return false;
     }
@@ -60,78 +60,46 @@ class TicTacToe
      */
     public function isFinished()
     {
-        $grid = $this->getBoard()->getGrid();
-        $length = TicTacToe::DIMENSION;
-        $findPlayerIdByShape = function ($shape) {
-            return array_search($shape, $this->shapes);
-        };
-        $message = function($shape) use ($findPlayerIdByShape) {
-            $winner = $this->players[$findPlayerIdByShape($shape)];
-            $name = $winner->getName();
-            if (get_class($winner) === "Bot")
-                return "<div class='alert alert-danger'>$name ($shape) has won!</div>";
-            else
-                return "<div class='alert alert-success'>$name ($shape) has won!</div>";
-        };
-        $tied = "<div class='alert alert-info'>It's a tight!</div>";
-        $checkLinear = function ($orientation) use ($grid, $length, $message) {
-            for ($i = 0; $i < $length; $i++) {
-                if ($orientation === "horizontal")
-                    $shape = $grid[$i][0];
-                else
-                    $shape = $grid[0][$i];
-                if (empty($shape)) continue;
-
-                for ($j = 1; $j < $length; $j++) {
-                    if ($orientation === "horizontal")
-                        $compare = $grid[$i][$j];
-                    else
-                        $compare = $grid[$j][$i];
-
-                    if ($compare === $shape)
-                        continue;
-                    else
-                        continue 2;
-                }
-                return $message($shape);
-            }
-            return false;
-        };
-        $checkDiagonal = function ($orientation) use ($grid, $length, $message) {
-            if ($orientation === "topleft")
-                $shape = $grid[0][0];
-            else
-                $shape = $grid[$length-1][0];
-            if (empty($shape)) return false;
-
-            for ($i = 1; $i < $length; $i++) {
-                if ($orientation === "topleft")
-                    $compare = $grid[$i][$i];
-                else
-                    $compare = $grid[($length-1)-$i][$i];
-                if ($compare === $shape)
-                    continue;
-                else
-                    return false;
-            }
-            return $message($shape);
-        };
-
-        $result = $this->checkLinear($grid, $message);
+        $result = $this->checkLinear($this->getBoard()->getGrid());
         if ($result) return $result;
 
-        $result = $this->checkLinear($this->getBoard()->flipToRight(), $message);
+        $result = $this->checkLinear($this->getBoard()->flipToRight());
         if ($result) return $result;
 
-        $result = $this->checkLinear($this->getBoard()->getDiagonals(), $message);
+        $result = $this->checkLinear($this->getBoard()->getDiagonals());
         if ($result) return $result;
 
-        $result = $checkDiagonal("bottomleft");
-        if ($result) return $result;
-        else if ($this->turn === ($length * $length))
-            return $tied;
+        if ($this->turn === (TicTacToe::DIMENSION * TicTacToe::DIMENSION))
+            return $this->getTiedMessage();
         else
             return false;
+    }
+
+    public function getVictoryMessage($shape)
+    {
+        $winner = $this->players[$this->findPlayerIdByShape($shape)];
+        $name = $winner->getName();
+
+        if (get_class($winner) === "Bot") {
+            return "<div class='alert alert-danger'>$name ($shape) has won!</div>";
+        } else {
+            return "<div class='alert alert-success'>$name ($shape) has won!</div>";
+        }
+    }
+
+    public function getTiedMessage()
+    {
+        return "<div class='alert alert-info'>It's a tight!</div>";
+    }
+
+    /**
+     * Finds the arrayposition of a player
+     * @param $shape
+     * @return mixed
+     */
+    public function findPlayerIdByShape($shape)
+    {
+        return array_search($shape, $this->shapes);
     }
 
     public function increaseTurn()
