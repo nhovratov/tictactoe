@@ -23,9 +23,10 @@ class Bot extends Player
      */
     public function makeRandomTurn(Board $board)
     {
-        $generateRandomCoords = function () {
-            $x = rand(0, 2);
-            $y = rand(0, 2);
+        $generateRandomCoords = function () use ($board){
+            $length = $board->getRows();
+            $x = rand(0, $length);
+            $y = rand(0, $length);
             return [$x, $y];
         };
         $coords = $generateRandomCoords();
@@ -51,12 +52,42 @@ class Bot extends Player
             }
             return $newBoard;
         };
-        $scanBoardLinear = function (Board $board, $orientation) use ($reverseGrid) {
+
+        $getDiagonalGrid = function () use ($board) {
+            $grid = $board->getGrid();
+            $count = count($grid);
+            $diagonalGrid = [];
+            for ($i = 0, $j = $count-1; $i < $count; $i++, $j--) {
+                $diagonalGrid[0][] = $grid[$i][$i];
+                $diagonalGrid[1][] = $grid[$i][$j];
+            }
+            return $diagonalGrid;
+        };
+
+        $decodeDiagonalCoordinate = function ($row, $col) {
+            $decodeTable = [
+                [
+                    0 => [0, 0],
+                    1 => [1, 1],
+                    2 => [2, 2]
+                ],
+                [
+                    0 => [0, 2],
+                    1 => [1, 1],
+                    2 => [2, 0]
+                ]
+            ];
+
+            return $decodeTable[$row][$col];
+        };
+
+        $scanBoardLinear = function (Board $board, $orientation) use ($reverseGrid, $getDiagonalGrid, $decodeDiagonalCoordinate) {
             if ($orientation === "horizontal")
                 $grid = $board->getGrid();
-            else
+            elseif ($orientation === "vertical")
                 $grid = $reverseGrid($board->getGrid());
-
+            else
+                $grid = $getDiagonalGrid($board->getGrid());
             $count = count($grid);
             for ($i = 0; $i < $count; $i++) {
                 if (in_array($this->getShape(), $grid[$i]) && in_array('', $grid[$i])) {
@@ -67,14 +98,15 @@ class Bot extends Player
 
                         if ($orientation === "horizontal")
                             return [$i, $freePosition];
-                        else
+                        elseif ($orientation === "vertical")
                             return [$freePosition, $i];
+                        else
+                            return $decodeDiagonalCoordinate($i, $freePosition);
                     }
                 }
             }
             return false;
         };
-
 
 
         if ($coords = $scanBoardLinear($board, "horizontal")) {
@@ -86,6 +118,11 @@ class Bot extends Player
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
         }
+
+        if ($coords = $scanBoardLinear($board, "diagonal")) {
+            $board->setGrid($coords[0], $coords[1], $this->shape);
+            return true;
+        };
 
         $generateRandomCoords = function () {
             $x = rand(0, 2);
