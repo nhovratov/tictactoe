@@ -3,16 +3,16 @@
 class TicTacToe
 {
     const DIMENSION = 3;
-    
+
     /** @var Board $board  */
     protected $board = null;
-    
+
     /** @var array $player */
     protected $players = [];
-    
+
     /** @var string $currentShape */
     protected $currentShape = '';
-    
+
     /** @var int $turn */
     protected $turn = 0;
 
@@ -28,7 +28,7 @@ class TicTacToe
         if ($mode === "pvp")
             $this->players = [new Player("Player 1", $this->shapes[0]), new Player("Player 2", $this->shapes[1])];
         else
-            $this->players = [new Player("Player 1", $this->shapes[0]), new Bot("TicTacToe-Bot", $this->shapes[1], 2)];
+            $this->players = [new Player("Player 1", $this->shapes[0]), new Bot("TicTacToe-Bot", $this->shapes[1], 1)];
         $this->currentShape = $this->players[0]->getShape();
         $this->turn = 0;
     }
@@ -101,7 +101,7 @@ class TicTacToe
 
         $result = $checkLinear("vertical");
         if ($result) return $result;
-        
+
         $result = $checkDiagonal("topleft");
         if ($result) return $result;
 
@@ -117,7 +117,7 @@ class TicTacToe
     {
         $this->turn++;
     }
-    
+
     /**
      * @return string
      */

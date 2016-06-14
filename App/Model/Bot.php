@@ -21,20 +21,21 @@ class Bot extends Player
         elseif ($this->level == 2)
             $this->makeFillTurn($board);
     }
+
+    private function generateRandomCoords()
+    {
+        $x = rand(0, TicTacToe::DIMENSION -1);
+        $y = rand(0, TicTacToe::DIMENSION -1);
+        return [$x, $y];
+    }
     /**
      * @param Board $board
      */
     public function makeRandomTurn(Board $board)
     {
-        $generateRandomCoords = function () use ($board){
-            $length = $board->getRows();
-            $x = rand(0, $length);
-            $y = rand(0, $length);
-            return [$x, $y];
-        };
-        $coords = $generateRandomCoords();
-        while (!empty($board->getGrid()[$coords[0]][$coords[1]]))
-            $coords = $generateRandomCoords();
+        do {
+            $coords = $this->generateRandomCoords();
+        } while (!empty($board->getGrid()[$coords[0]][$coords[1]]));
 
         $board->setGrid($coords[0], $coords[1], $this->shape);
     }
