@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f44864a9-dc34-4e8b-8920-1e07b4c64ca0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/Board.php" afterPath="$PROJECT_DIR$/App/Model/Board.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/Bot.php" afterPath="$PROJECT_DIR$/App/Model/Bot.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/TicTacToe.php" afterPath="$PROJECT_DIR$/App/Model/TicTacToe.php" />
     </list>
     <ignored path="TicTacToe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +48,8 @@
       <file leaf-file-name="Bot.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="1428">
+              <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -334,7 +332,7 @@
       <workItem from="1465400031074" duration="2449000" />
       <workItem from="1465409358219" duration="454000" />
       <workItem from="1465464421304" duration="11159000" />
-      <workItem from="1465883373898" duration="16866000" />
+      <workItem from="1465883373898" duration="17581000" />
     </task>
     <task id="LOCAL-00001" summary="Add classes">
       <created>1464684434069</created>
@@ -665,11 +663,25 @@
       <option name="project" value="LOCAL" />
       <updated>1465903515395</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Refactor lvl 2 Bot">
+      <created>1465905532835</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1465905532835</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Refactor lvl 2 Bot">
+      <created>1465906120032</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1465906120033</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102531000" />
+    <option name="totallyTimeSpent" value="103246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -685,7 +697,7 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14498934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12263099" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -709,7 +721,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor a lot" />
     <MESSAGE value="Rename TicTacToe Controller" />
     <MESSAGE value="Add reset method" />
     <MESSAGE value="Add win validation" />
@@ -734,7 +745,8 @@
     <MESSAGE value="Add flipToRight function to board" />
     <MESSAGE value="Add getDiagonals function to the Board class" />
     <MESSAGE value="Refactor is finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor is finished" />
+    <MESSAGE value="Refactor lvl 2 Bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor lvl 2 Bot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1067,14 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-612">
@@ -1091,10 +1095,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/Player.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        <state relative-caret-position="1428">
+          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
           <folding />
         </state>
       </provider>

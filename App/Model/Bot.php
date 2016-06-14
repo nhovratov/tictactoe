@@ -16,10 +16,11 @@ class Bot extends Player
      */
     public function makeAutoTurn(Board $board)
     {
-        if ($this->level === 1)
+        if ($this->level === 1) {
             $this->makeRandomTurn($board);
-        elseif ($this->level == 2)
-            $this->makeFillTurn($board);
+        } elseif ($this->level == 2) {
+            $this->botLvl2Turn($board);
+        }
     }
 
     private function generateRandomCoords()
@@ -46,71 +47,65 @@ class Bot extends Player
         $board->setGrid($coords[0], $coords[1], $this->shape);
     }
 
-    public function scanForGap(Board $board, $orientation)
+    /**
+     * Looks for a free spot, if there are already 2 shapes in a line
+     * @param $grid
+     * @return array|bool
+     */
+    public function scanForGap($grid)
     {
-        if ($orientation === "horizontal")
-            $grid = $board->getGrid();
-        elseif ($orientation === "vertical")
-            $grid = $board->flipToRight();
-        else
-            $grid = $board->getDiagonals();
-
         $rowCount = count($grid);
         for ($row = 0; $row < $rowCount; $row++) {
-            //the Bots shape is not in the array
-            if (!in_array($this->getShape(), $grid[$row]))
-                continue;
 
-            //there is no free empty space
-            if (!in_array('', $grid[$row]))
+            if (!in_array($this->getShape(), $grid[$row])) {
                 continue;
+            }
+
+            if (!in_array('', $grid[$row])) {
+                continue;
+            }
 
             $values = array_count_values($grid[$row]);
             $countBotShape = $values[$this->getShape()];
 
             //there must be enough shapes
-            if ($countBotShape < TicTacToe::DIMENSION - 1)
+            if ($countBotShape < TicTacToe::DIMENSION - 1) {
                 continue;
+            }
 
-            /*if there is only one empty space left and everything else is the Bots shape, gg!
-            get the free spot */
             $freeSpot = array_search('', $grid[$row]);
 
-            if ($orientation === "horizontal")
-                return [$row, $freeSpot];
-            elseif ($orientation === "vertical")
-                return [$freeSpot, $row];
-            else
-                return $board->decodeDiagonalCoordinate($row, $freeSpot);
+            return [$row, $freeSpot];
         }
 
         return false;
     }
 
     /**
-     * Checks if there is a gap which leads to a win when filled
+     * Bot lvl 2 looks also for gaps else make random turn
      * @param Board $board
      * @return bool
      */
-    public function makeFillTurn(Board $board)
+    public function botLvl2Turn(Board $board)
     {
-        if ($coords = $this->scanForGap($board, "horizontal")) {
+        if ($coords = $this->scanForGap($board->getGrid())) {
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
         }
 
-        if ($coords = $this->scanForGap($board, "vertical")) {
+        if ($coords = $this->scanForGap($board->flipToRight())) {
+            //flip the coordinates
+            $board->setGrid($coords[1], $coords[0], $this->shape);
+            return true;
+        }
+
+        if ($coords = $this->scanForGap($board->getDiagonals())) {
+            $coords = $board->decodeDiagonalCoordinate($coords[0], $coords[1]);
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
         }
 
-        if ($coords = $this->scanForGap($board, "diagonal")) {
-            $board->setGrid($coords[0], $coords[1], $this->shape);
-            return true;
-        }
-
-        $coords = $this->getFreeRandomCoords($board);
-        $board->setGrid($coords[0], $coords[1], $this->shape);
+        $this->makeRandomTurn($board);
         return true;
     }
 }
