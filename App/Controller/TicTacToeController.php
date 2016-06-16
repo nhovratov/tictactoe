@@ -19,9 +19,10 @@ class TicTacToeController extends Controller
         $this->view('home/pvp', ['tictactoe' => $this->tictactoe]);
     }
 
-    public function initiatePvCom()
+    public function initiatePvCom($level = 1)
     {
         $this->tictactoe = $this->model('TicTacToe', 'pvcom');
+        $this->tictactoe->getPlayer(1)->setLevel($level);
         $_SESSION['game'] = serialize($this->tictactoe);
         $this->view('home/pvcom', ['tictactoe' => $this->tictactoe]);
     }

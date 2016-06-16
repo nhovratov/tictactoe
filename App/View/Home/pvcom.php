@@ -7,7 +7,16 @@
         <input type="submit" class="btn" value="Wechsle zu Spieler gegen Spieler" />
     </form>
     <article id="mainContent">
-        <h2>Spieler gegen Computer<span class="glyphicons glyphicons-robot"></span></h2>
+        <h2>Spieler gegen Computer Level <?= $data['tictactoe']->getPlayer(1)->getLevel(); ?></h2>
+        <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
+            <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
+            <input type="hidden" name="tictactoe[action]" value="initiatePvCom" />
+            <select name="tictactoe[params]" class="form-control">
+                <option value="1">Bot Level 1</option>
+                <option value="2">Bot Level 2</option>
+            </select>
+            <input type="submit" value="Schwierigkeit auswählen" class="btn btn-default" />
+        </form>
         <p>Wähle ein Feld. Wer zuerst 3 Formen in der Reihe hat gewinnt.</p>
 <?php
 if (!empty($data['message'])):
@@ -58,6 +67,7 @@ for ($i = 1; $i <= $data['tictactoe']->getBoard()->getRows(); $i++) {
     <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
         <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
         <input type="hidden" name="tictactoe[action]" value="initiatePvCom" />
+        <input type="hidden" name="tictactoe[params]" value="<?= $data['tictactoe']->getPlayer(1)->getLevel(); ?>" />
         <input type="submit" value="New Game" class="btn btn-primary" />
         <span class="glyphicon glyphicon-repeat"></span>
     </form>

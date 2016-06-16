@@ -48,3 +48,7 @@ table.tic {
     top: 7px;
     left: 5px;
 }
+
+select.form-control {
+    width: 15.6%;
+}

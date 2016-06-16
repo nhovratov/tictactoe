@@ -18,7 +18,7 @@ class Bot extends Player
     {
         if ($this->level === 1) {
             $this->makeRandomTurn($board);
-        } elseif ($this->level == 2) {
+        } elseif ($this->level === 2) {
             $this->botLvl2Turn($board);
         }
     }
@@ -107,5 +107,21 @@ class Bot extends Player
 
         $this->makeRandomTurn($board);
         return true;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * @param int $level
+     */
+    public function setLevel($level)
+    {
+        $this->level = (int) $level;
     }
 }
