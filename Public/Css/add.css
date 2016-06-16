@@ -1,6 +1,10 @@
 html {
     overflow-y: scroll !important;
 }
+
+body {
+    padding-top: 100px;
+}
 .glyphicon.glyphicon-repeat {
     font-size: 21px;
     top: 7px;
@@ -13,6 +17,16 @@ html {
 }
 
 #infotext > div {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.salute {
+    margin-top: 0;
+    padding: 15px;
+}
+
+.navbar-brand {
+    padding-top: 8px;
+    padding-bottom: 0;
 }
