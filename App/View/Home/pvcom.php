@@ -20,17 +20,18 @@
         <h2>Spieler gegen Computer Level <?= $data['tictactoe']->getPlayer(1)->getLevel(); ?></h2>
         <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
             <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
-            <input type="hidden" name="tictactoe[action]" value="initiatePvp" />
-            <input type="submit" class="btn" value="Wechsle zu Spieler gegen Spieler" />
-        </form>
-        <form method="get" action="<?=$_SERVER['PHP_SELF']?>">
-            <input type="hidden" name="tictactoe[controller]" value="TicTacToe" />
-            <input type="hidden" name="tictactoe[action]" value="initiatePvCom" />
-            <select name="tictactoe[params]" class="form-control">
-                <option value="1">Bot Level 1</option>
-                <option value="2">Bot Level 2</option>
+            <select name="tictactoe[action]" class="form-control" id="selectMode">
+                <option value="initiatePvp">Spieler vs. Spieler</option>
+                <option value="initiatePvCom">Spieler vs. Com</option>
             </select>
-            <input type="submit" value="Schwierigkeit auswählen" class="btn btn-default" />
+            <fieldset id="difficulty">
+                <label for="lvl">Computer Intelligenz auswählen</label>
+                <select name="tictactoe[params]" class="form-control" id="lvl">
+                    <option value="1">Bot Level 1</option>
+                    <option value="2">Bot Level 2</option>
+                </select>
+            </fieldset>
+            <input type="submit" value="Los!" class="btn btn-default" />
         </form>
         <p>Wähle ein Feld. Wer zuerst 3 Formen in der Reihe hat gewinnt.</p>
 <?php
