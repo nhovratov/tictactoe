@@ -11,6 +11,6 @@ class Controller
     }
 
     public function view($view, $data = []) {
-        require_once "../App/View/$view.php";
+        require_once "../App/View/Templates/$view.php";
     }
 }

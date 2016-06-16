@@ -81,15 +81,15 @@ class TicTacToe
         $name = $winner->getName();
 
         if (get_class($winner) === "Bot") {
-            return "<div class='alert alert-danger'>$name ($shape) has won!</div>";
+            return "$name \"$shape\" has won!";
         } else {
-            return "<div class='alert alert-success'>$name ($shape) has won!</div>";
+            return "$name \"$shape\" has won!";
         }
     }
 
     public function getTiedMessage()
     {
-        return "<div class='alert alert-info'>It's a tight!</div>";
+        return "It's a tight!";
     }
 
     /**

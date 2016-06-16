@@ -30,3 +30,34 @@ body {
     padding-top: 8px;
     padding-bottom: 0;
 }
+
+footer {
+    padding-top: 15px;
+    margin-bottom: 50px;
+}
+
+.gamemode select {
+    width: 250px;
+}
+
+.gamemode input[type="submit"] {
+    width: 75px;
+}
+
+fieldset {
+    margin-bottom: 4px;
+}
+
+.statusbar {
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.statusbar h2 {
+    margin: 0;
+}
+
+.level1 {
+    padding: 15px 0;
+}

@@ -51,6 +51,11 @@ input.field:hover {
     border: 0;
     color: #c81657; /* red on hover */
 }
+
+.tic {
+    margin: auto;
+}
+
 table.tic input{
     width: 2rem;
 }
