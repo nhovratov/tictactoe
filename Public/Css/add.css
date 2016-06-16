@@ -1,0 +1,18 @@
+html {
+    overflow-y: scroll !important;
+}
+.glyphicon.glyphicon-repeat {
+    font-size: 21px;
+    top: 7px;
+    left: 5px;
+}
+
+#infotext {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#infotext > div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

@@ -1,3 +1,31 @@
+.bg-colorESFLGruen {
+    background-color: #00948e;
+}
+.bg-colorESFLRot {
+    background-color: #c81657;
+}
+.bg-colorESFLBlau {
+    background-color: #0d80b9;
+}
+.bg-colorESFLGelb {
+    background-color: #f6d700;
+}
+.bg-colorESFLGrau {
+    background-color: #3d3d3b;
+}
+.bg-colorWhite {
+    background-color: white;
+}
+.textWhite {
+    color: white;
+}
+.navbar-logo {
+    height: 34px;
+}
+.footer-logo {
+    height: 8rem;
+    border: .5rem solid white;
+}
 table.tic td {
     border: 1px solid #333; /* grey cell borders */
     width: 8rem;
@@ -5,50 +33,27 @@ table.tic td {
     vertical-align: middle;
     text-align: center;
     font-size: 4rem;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
 }
-
-table {
-    margin-bottom: 2rem;
-}
-
+table { margin-bottom: 2rem; }
 input.field {
     border: 0;
     background-color: white;
     color: white; /* make the value invisible (white) */
     height: 8rem;
     width: 8rem !important;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     font-size: 4rem;
     font-weight: normal;
     cursor: pointer;
 }
-
 input.field:hover {
     border: 0;
     color: #c81657; /* red on hover */
 }
-
-/* X is light red */
-.colorX {
-    color: #e77 !important;
+table.tic input{
+    width: 2rem;
 }
-
-/* O is light blue */
-.colorO {
-    color: #77e !important;
-}
-
-table.tic {
-    border-collapse: collapse;
-}
-
-.glyphicon.glyphicon-repeat {
-    font-size: 21px;
-    top: 7px;
-    left: 5px;
-}
-
-select.form-control {
-    width: 15.6%;
-}
+input.colorX { color: #e77; } /* X is light red */
+input.colorO { color: #77e; } /* O is light blue */
+table.tic { border-collapse: collapse; }
