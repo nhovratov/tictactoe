@@ -75,6 +75,11 @@ class TicTacToe
             return false;
     }
 
+    /**
+     * @param $shape
+     * @return string
+     * TODO Texte in den View verlagern, nur Namen, Form und message type übergeben
+     */
     public function getVictoryMessage($shape)
     {
         $winner = $this->players[$this->findPlayerIdByShape($shape)];

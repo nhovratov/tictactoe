@@ -45,7 +45,7 @@ footer {
 }
 
 fieldset {
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 }
 
 .statusbar {
@@ -55,6 +55,7 @@ fieldset {
 }
 
 .statusbar h2 {
+    color: #FFF;
     margin: 0;
 }
 
