@@ -53,7 +53,7 @@ class TicTacToe
                     continue 2;
             }
             //If the loop goes through all fields are the same and theres a winner
-            return $this->getVictoryMessage($shape);
+            return $this->getMessage($shape);
         }
         return false;
     }
@@ -74,7 +74,7 @@ class TicTacToe
         if ($result) return $result;
 
         if ($this->turn === (TicTacToe::DIMENSION * TicTacToe::DIMENSION))
-            return $this->getTiedMessage();
+            return $this->getMessage();
         else
             return false;
     }
@@ -82,23 +82,16 @@ class TicTacToe
     /**
      * @param $shape
      * @return string
-     * TODO Texte in den View verlagern, nur Namen, Form und message type übergeben
      */
-    public function getVictoryMessage($shape)
+    public function getMessage($shape = null)
     {
-        $winner = $this->players[$this->findPlayerIdByShape($shape)];
-        $name = $winner->getName();
-
-        if (get_class($winner) === "Bot") {
-            return "$name \"$shape\" has won!";
-        } else {
-            return "$name \"$shape\" has won!";
+        if ($shape) {
+            $winner = $this->players[$this->findPlayerIdByShape($shape)];
+            $name = $winner->getName();
+            return ['name' => $name, 'shape' => $shape];
         }
-    }
-
-    public function getTiedMessage()
-    {
-        return "It's a tight!";
+        
+        return 'tight';
     }
 
     /**
