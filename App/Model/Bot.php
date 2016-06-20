@@ -3,6 +3,7 @@
 class Bot extends Player
 {
     protected $level = 0;
+    protected $midChecked = false;
     
     public function __construct($name, $shape, $level)
     {
@@ -88,9 +89,17 @@ class Bot extends Player
      */
     public function botLvl2Turn(Board $board)
     {
-        if ($mid = $this->canSetMid($board)) {
-            $board->setGrid($mid, $mid, $this->shape);
-            return true;
+        //Falls es die Mitte noch nicht überprüft wurde
+        if (!$this->midChecked) {
+            $this->midChecked = true;
+            if ($mid = $this->canSetMid($board)) {
+                $board->setGrid($mid, $mid, $this->shape);
+                return true;
+            } else {
+                $coords = $this->getRandomCorner();
+                $board->setGrid($coords[0], $coords[1], $this->shape);
+                return true;
+            }
         }
 
         if ($coords = $this->scanForGap($board->getGrid())) {
@@ -115,7 +124,7 @@ class Bot extends Player
     }
 
     /**
-     *  Wenn die Mitte frei ist, setzt der Bot in die Mitte
+     * Wenn die Mitte frei ist, setzt der Bot in die Mitte
      * @param Board $board
      * @return int|bool
      */
@@ -129,6 +138,27 @@ class Bot extends Player
             return $mid;
 
         return false;
+    }
+
+    /**
+     * @return array
+     */
+    private function getRandomCorner()
+    {
+        $length = TicTacToe::DIMENSION -1;
+        $randomRow = rand(0, 1);
+        $randomCol = rand(0, 1);
+        $coords = [$randomRow, $randomCol];
+
+        switch ($coords) {
+            case [0, 1]: $coords[1] = $length;
+                break;
+            case [1, 0]: $coords[0] = $length;
+                break;
+            case [1, 1]: $coords[0] = $coords[1] = $length;
+        }
+
+        return $coords;
     }
 
     /**

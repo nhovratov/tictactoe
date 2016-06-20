@@ -40,7 +40,7 @@ class TicTacToeController extends Controller
             $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
             $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(1)->getShape());
         }
-        //Automatischer Spielzug des Computers
+        //Spielzug Spieler 2
         else {
             $this->tictactoe->getPlayer(1)->makeTurn($this->tictactoe->getBoard(), $coordinates);
             $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(0)->getShape());
