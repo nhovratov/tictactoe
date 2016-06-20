@@ -4,12 +4,6 @@
     <p>Here comes the first game..</p>
     <?php $render->partial("infobox") ?>
     <article id="mainContent">
-        <?php if ($data['gamemode'] == "playerVsCom") : ?>
-            <h2>Spieler gegen Computer Level <?= $data['tictactoe']->getPlayer(1)->getLevel(); ?></h2>
-        <?php endif; ?>
-        <?php if ($data['gamemode'] == "playerVsPlayer") : ?>
-            <h2>Spieler gegen Spieler</h2>
-        <?php endif; ?>
         <?php $render->partial("gamemode", $data) ?>
         <?php $render->partial("status", $data) ?>
         <div class="row level1">
