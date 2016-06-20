@@ -1,4 +1,4 @@
-<?php include_once "../App/View/Layouts/header.inc.php" ?>
+<?php $render->layout("header", $data); ?>
 <section class="container bg-colorWhite">
     <h1 class="bg-colorESFLBlau row salute">Hi, Flensburg developers!</h1>
     <p>Here comes the first game..</p>
@@ -13,4 +13,4 @@
         </div>
     </article>
 </section>
-<?php include_once "../App/View/Layouts/footer.inc.php" ?>
+<?php $render->layout("footer", $data); ?>

@@ -16,7 +16,7 @@ class TicTacToeController extends Controller
     {
         $this->tictactoe = $this->model('TicTacToe', 'pvp');
         $_SESSION['game'] = serialize($this->tictactoe);
-        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'gamemode' => 'playerVsPlayer']);
+        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'gamemode' => 'playerVsPlayer', 'reset' => 'initiatePvP']);
     }
 
     public function initiatePvCom($level = 1)
@@ -24,7 +24,7 @@ class TicTacToeController extends Controller
         $this->tictactoe = $this->model('TicTacToe', 'pvcom');
         $this->tictactoe->getPlayer(1)->setLevel($level);
         $_SESSION['game'] = serialize($this->tictactoe);
-        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'gamemode' => 'playerVsCom']);
+        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'gamemode' => 'playerVsCom', 'reset' => 'initiatePvCom']);
     }
 
     /**
@@ -50,7 +50,7 @@ class TicTacToeController extends Controller
 
         $_SESSION['game'] = serialize($this->tictactoe);
 
-        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsPlayer']);
+        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsPlayer', 'reset' => 'initiatePvP']);
     }
     /**
      * executes a move
@@ -76,7 +76,7 @@ class TicTacToeController extends Controller
 
         $_SESSION['game'] = serialize($this->tictactoe);
 
-        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsCom']);
+        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsCom', 'reset' => 'initiatePvCom']);
     }
 
 

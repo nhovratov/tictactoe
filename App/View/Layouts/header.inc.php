@@ -34,7 +34,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Start new <span class="sr-only">(current)</span></a></li>
+                    <?php if ($data['gamemode'] === 'playerVsPlayer'): ?>
+                        <li><a href="index.php">Start new</a></li>
+                    <?php endif; ?>
+                    <?php if ($data['gamemode'] === 'playerVsCom'): ?>
+                        <li>
+                        <form action="<?=$_SERVER['PHP_SELF'];?>" method="get">
+                            <input type="hidden" name="tictactoe[controller]" value="TicTacToe">
+                            <input type="hidden" name="tictactoe[action]" value="<?=$data['reset']?>">
+                            <input type="hidden" name="tictactoe[params]" value="<?= $data['tictactoe']->getPlayer(1)->getLevel(); ?>">
+                        </form>
+                            <a href="javascript:void(0);" onclick="$(this).prev('form').submit();">Start new</a>
+                        </li>
+                    <?php endif; ?>
                     <li><a href="https://de.wikipedia.org/wiki/Tic-Tac-Toe" target="_blank">Über Tic-Tac-Toe</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
