@@ -33,6 +33,10 @@ class TicTacToe
         $this->turn = 0;
     }
 
+    /**
+     * @param $grid
+     * @return bool|string
+     */
     private function checkLinear($grid)
     {
         $rowCount = count($grid);
