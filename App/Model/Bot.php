@@ -88,6 +88,11 @@ class Bot extends Player
      */
     public function botLvl2Turn(Board $board)
     {
+        if ($mid = $this->canSetMid($board)) {
+            $board->setGrid($mid, $mid, $this->shape);
+            return true;
+        }
+
         if ($coords = $this->scanForGap($board->getGrid())) {
             $board->setGrid($coords[0], $coords[1], $this->shape);
             return true;
@@ -107,6 +112,23 @@ class Bot extends Player
 
         $this->makeRandomTurn($board);
         return true;
+    }
+
+    /**
+     *  Wenn die Mitte frei ist, setzt der Bot in die Mitte
+     * @param Board $board
+     * @return int|bool
+     */
+    private function canSetMid(Board $board)
+    {
+        $grid = $board->getGrid();
+        /** @var int $mid */
+        $mid = floor(TicTacToe::DIMENSION / 2);
+
+        if (empty($grid[$mid][$mid]))
+            return $mid;
+
+        return false;
     }
 
     /**
