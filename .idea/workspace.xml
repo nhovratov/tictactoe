@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f44864a9-dc34-4e8b-8920-1e07b4c64ca0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller/TicTacToeController.php" afterPath="$PROJECT_DIR$/App/Controller/TicTacToeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Core/Renderer.php" afterPath="$PROJECT_DIR$/App/Core/Renderer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/View/Layouts/header.inc.php" afterPath="$PROJECT_DIR$/App/View/Layouts/header.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/View/Templates/Home/index.php" afterPath="$PROJECT_DIR$/App/View/Templates/Home/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/View/Partials/status.inc.php" afterPath="$PROJECT_DIR$/App/View/Partials/status.inc.php" />
     </list>
     <ignored path="TicTacToe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,41 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-330">
+              <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/View/Templates/Home/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Core/Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TicTacToeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Controller/TicTacToeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gamemode.inc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/View/Partials/gamemode.inc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+            <state relative-caret-position="272">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,18 +48,8 @@
       <file leaf-file-name="status.inc.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/View/Partials/status.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="101" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.inc.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/App/View/Layouts/header.inc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="33" column="81" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
+            <state relative-caret-position="119">
+              <caret line="7" column="90" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -144,12 +111,12 @@
         <option value="$PROJECT_DIR$/Public/index.php" />
         <option value="$PROJECT_DIR$/App/Core/Controller.php" />
         <option value="$PROJECT_DIR$/App/Model/Bot.php" />
-        <option value="$PROJECT_DIR$/App/View/Partials/status.inc.php" />
         <option value="$PROJECT_DIR$/App/Model/TicTacToe.php" />
         <option value="$PROJECT_DIR$/App/Core/Renderer.php" />
         <option value="$PROJECT_DIR$/App/View/Templates/Home/index.php" />
         <option value="$PROJECT_DIR$/App/Controller/TicTacToeController.php" />
         <option value="$PROJECT_DIR$/App/View/Layouts/header.inc.php" />
+        <option value="$PROJECT_DIR$/App/View/Partials/status.inc.php" />
       </list>
     </option>
   </component>
@@ -498,14 +465,7 @@
       <workItem from="1466067582001" duration="9823000" />
       <workItem from="1466083167662" duration="1441000" />
       <workItem from="1466088612468" duration="11834000" />
-      <workItem from="1466431295256" duration="12064000" />
-    </task>
-    <task id="LOCAL-00017" summary="Add win validation">
-      <created>1465288208220</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1465288208220</updated>
+      <workItem from="1466431295256" duration="12919000" />
     </task>
     <task id="LOCAL-00018" summary="Add win validation">
       <created>1465292382673</created>
@@ -843,11 +803,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466444366115</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Add Layout renderer and include reset button">
+      <created>1466446768795</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1466446768795</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138461000" />
+    <option name="totallyTimeSpent" value="139316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -918,7 +885,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[TODO] Added possiblity to create a game with 2 normal Players" />
     <MESSAGE value="Exchange winnermessage name with real player name" />
     <MESSAGE value="Display a danger alert, if the bot wins" />
     <MESSAGE value="Refactor function create grid" />
@@ -943,7 +909,8 @@
     <MESSAGE value="Add method canSetMid" />
     <MESSAGE value="Add method getRandomCorner" />
     <MESSAGE value="[TODO] shift the message to view" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TODO] shift the message to view" />
+    <MESSAGE value="Add Layout renderer and include reset button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Layout renderer and include reset button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1197,14 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1221,10 +1180,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/View/Partials/status.inc.php">
+    <entry file="file://$PROJECT_DIR$/App/View/Layouts/header.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="81" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/View/Partials/gamemode.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="101" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="101" />
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1247,24 +1214,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/View/Templates/Home/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state relative-caret-position="272">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/View/Partials/gamemode.inc.php">
+    <entry file="file://$PROJECT_DIR$/App/View/Partials/status.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        <state relative-caret-position="119">
+          <caret line="7" column="90" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/View/Layouts/header.inc.php">
+    <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="33" column="81" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
+        <state relative-caret-position="-330">
+          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
           <folding />
         </state>
       </provider>

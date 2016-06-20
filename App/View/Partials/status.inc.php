@@ -5,7 +5,7 @@
             if ($data['message'] === 'tight') {
                 echo "It's a tight!";
             } else {
-                echo "{$data['message']['name']} \"{$data['message']['shape']}\" has won!";
+                echo "{$data['message']['name']} &bdquo;{$data['message']['shape']}&ldquo; has won!";
             }
         } elseif ($data['tictactoe']->getTurn() == 0) {
             if ($data['gamemode'] == "playerVsCom") : ?>
