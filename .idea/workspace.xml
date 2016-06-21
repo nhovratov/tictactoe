@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f44864a9-dc34-4e8b-8920-1e07b4c64ca0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/View/Partials/status.inc.php" afterPath="$PROJECT_DIR$/App/View/Partials/status.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Model/Board.php" afterPath="$PROJECT_DIR$/App/Model/Board.php" />
     </list>
     <ignored path="TicTacToe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,12 +24,32 @@
     <favorites_list name="TicTacToe" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="TicTacToe.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-330">
-              <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+            <state relative-caret-position="51">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bot.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Board.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Model/Board.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="55" column="34" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -88,7 +108,6 @@
         <option value="$PROJECT_DIR$/App/Model/MiddleBot.php" />
         <option value="$PROJECT_DIR$/App/autoload.php" />
         <option value="$PROJECT_DIR$/App/Model/Player.php" />
-        <option value="$PROJECT_DIR$/App/Model/Board.php" />
         <option value="$PROJECT_DIR$/App/View/Layout/footer.inc.php" />
         <option value="$USER_HOME$/Desktop/TicTacToe-V04/TicTacToe/index.html" />
         <option value="H:/TicTacToe.php" />
@@ -117,6 +136,7 @@
         <option value="$PROJECT_DIR$/App/Controller/TicTacToeController.php" />
         <option value="$PROJECT_DIR$/App/View/Layouts/header.inc.php" />
         <option value="$PROJECT_DIR$/App/View/Partials/status.inc.php" />
+        <option value="$PROJECT_DIR$/App/Model/Board.php" />
       </list>
     </option>
   </component>
@@ -161,7 +181,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -353,6 +372,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -465,14 +485,8 @@
       <workItem from="1466067582001" duration="9823000" />
       <workItem from="1466083167662" duration="1441000" />
       <workItem from="1466088612468" duration="11834000" />
-      <workItem from="1466431295256" duration="12919000" />
-    </task>
-    <task id="LOCAL-00018" summary="Add win validation">
-      <created>1465292382673</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1465292382673</updated>
+      <workItem from="1466431295256" duration="12934000" />
+      <workItem from="1466488118975" duration="1814000" />
     </task>
     <task id="LOCAL-00019" summary="Refactor linear checking">
       <created>1465294565165</created>
@@ -810,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466446768795</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Change quotation marks">
+      <created>1466447815245</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1466447815245</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139316000" />
+    <option name="totallyTimeSpent" value="141145000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,25 +850,25 @@
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22073579" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24080268" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3567447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14925373" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15085287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12151617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24053451" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3567447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22073579" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12151617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -885,7 +906,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Exchange winnermessage name with real player name" />
     <MESSAGE value="Display a danger alert, if the bot wins" />
     <MESSAGE value="Refactor function create grid" />
     <MESSAGE value="Add bootstrap icons" />
@@ -910,7 +930,8 @@
     <MESSAGE value="Add method getRandomCorner" />
     <MESSAGE value="[TODO] shift the message to view" />
     <MESSAGE value="Add Layout renderer and include reset button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Layout renderer and include reset button" />
+    <MESSAGE value="Change quotation marks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change quotation marks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1019,7 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,14 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <marker date="1466092448598" expanded="true" signature="567:817" ph="..." />
-            <marker date="1466092448598" expanded="true" signature="574:812" ph="..." />
-            <marker date="1466092448598" expanded="true" signature="904:1136" ph="..." />
-            <marker date="1466092448598" expanded="true" signature="911:1131" ph="..." />
-            <marker date="1466092448598" expanded="true" signature="1194:1428" ph="..." />
-            <marker date="1466092448598" expanded="true" signature="1201:1423" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1104,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1112,7 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
           <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,7 +1130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="10" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,7 +1137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1136,15 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Board.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,19 +1155,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
-          <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,7 +1166,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,7 +1173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="81" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,7 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1200,7 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,7 +1194,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,8 +1215,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Model/TicTacToe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/Board.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="55" column="34" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/Bot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
           <folding />
         </state>
       </provider>

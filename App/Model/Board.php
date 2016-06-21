@@ -81,7 +81,9 @@ class Board
      */
     public function setGrid($x, $y, string $shape)
     {
-        $this->grid[$x][$y] = $shape;
+        if (empty($this->grid[$x][$y])) {
+            $this->grid[$x][$y] = $shape;
+        }
     }
 
     /**
