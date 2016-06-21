@@ -91,6 +91,7 @@ class Board
             return false;
         }
         $this->grid[$x][$y] = $shape;
+        return true;
     }
 
     /**

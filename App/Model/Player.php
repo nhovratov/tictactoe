@@ -19,7 +19,11 @@ class Player
     
     public function makeTurn(Board $board, $coordinates)
     {
-        $board->setGrid($coordinates[0], $coordinates[1], $this->getShape());
+        if (!$board->setGrid($coordinates[0], $coordinates[1], $this->getShape())) {
+            return false;
+        };
+        
+        return true;
     }
 
     /**

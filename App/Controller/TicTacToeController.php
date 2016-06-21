@@ -7,6 +7,12 @@ class TicTacToeController extends Controller
      */
     protected $tictactoe;
 
+    protected function returnToReferrer($resetAction)
+    {
+        $_SESSION['game'] = serialize($this->tictactoe);
+        $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => 'error', 'gamemode' => $_GET['tictactoe']['action'], 'reset' => $resetAction]);
+    }
+
     /**
      * default action instatiates a new TicTacTow object
      *
@@ -36,18 +42,23 @@ class TicTacToeController extends Controller
         $this->tictactoe = unserialize($_SESSION['game']);
 
         if (!$coordinates = $this->tictactoe->getBoard()->getParameters($move)) {
-            $_SESSION['game'] = serialize($this->tictactoe);
-            $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => 'error', 'gamemode' => 'playerVsPlayer', 'reset' => 'initiatePvP']);
+            $this->returnToReferrer('initiatePvp');
             return false;
         }
         //Spieler 1 fängt immer an.
         if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
-            $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            if (!$this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates)) {
+                $this->returnToReferrer('initiatePvp');
+                return false;
+            };
             $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(1)->getShape());
         }
         //Spielzug Spieler 2
         else {
-            $this->tictactoe->getPlayer(1)->makeTurn($this->tictactoe->getBoard(), $coordinates);
+            if (!$this->tictactoe->getPlayer(1)->makeTurn($this->tictactoe->getBoard(), $coordinates)) {
+                $this->returnToReferrer('initiatePvp');
+                return false;
+            };
             $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(0)->getShape());
         }
         $this->tictactoe->increaseTurn();
@@ -69,11 +80,13 @@ class TicTacToeController extends Controller
         $this->tictactoe = unserialize($_SESSION['game']);
         //Player move
         if (!$coordinates = $this->tictactoe->getBoard()->getParameters($move)) {
-            $_SESSION['game'] = serialize($this->tictactoe);
-            $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => 'error', 'gamemode' => 'playerVsCom', 'reset' => 'initiatePvCom']);
+            $this->returnToReferrer('initiatePvCom');
             return false;
         }
-        $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
+        if (!$this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates)) {
+            $this->returnToReferrer('initiatePvCom');
+            return false;
+        };
         $this->tictactoe->increaseTurn();
         $message = $this->tictactoe->isFinished();
 
