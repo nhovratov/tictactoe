@@ -4,6 +4,8 @@
         if (!empty($data['message'])) {
             if ($data['message'] === 'tight') {
                 echo "It's a tight!";
+            } elseif ($data['message'] === 'error') {
+                echo "Etwas ist schief gelaufen :/";
             } else {
                 echo "{$data['message']['name']} &bdquo;{$data['message']['shape']}&ldquo; has won!";
             }

@@ -29,12 +29,17 @@ class TicTacToeController extends Controller
 
     /**
      * @param $move
+     * @return bool
      */
     public function playerVsPlayer($move)
     {
         $this->tictactoe = unserialize($_SESSION['game']);
 
-        $coordinates = $this->tictactoe->getBoard()->getParameters($move);
+        if (!$coordinates = $this->tictactoe->getBoard()->getParameters($move)) {
+            $_SESSION['game'] = serialize($this->tictactoe);
+            $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => 'error', 'gamemode' => 'playerVsPlayer', 'reset' => 'initiatePvP']);
+            return false;
+        }
         //Spieler 1 fängt immer an.
         if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
             $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
@@ -51,18 +56,23 @@ class TicTacToeController extends Controller
         $_SESSION['game'] = serialize($this->tictactoe);
 
         $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsPlayer', 'reset' => 'initiatePvP']);
+        return true;
     }
     /**
      * executes a move
      *
      * @param $move
-     * @return void
+     * @return bool
      */
     public function playerVsCom($move)
     {
         $this->tictactoe = unserialize($_SESSION['game']);
         //Player move
-        $coordinates = $this->tictactoe->getBoard()->getParameters($move);
+        if (!$coordinates = $this->tictactoe->getBoard()->getParameters($move)) {
+            $_SESSION['game'] = serialize($this->tictactoe);
+            $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => 'error', 'gamemode' => 'playerVsCom', 'reset' => 'initiatePvCom']);
+            return false;
+        }
         $this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates);
         $this->tictactoe->increaseTurn();
         $message = $this->tictactoe->isFinished();
@@ -77,6 +87,7 @@ class TicTacToeController extends Controller
         $_SESSION['game'] = serialize($this->tictactoe);
 
         $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsCom', 'reset' => 'initiatePvCom']);
+        return true;
     }
 
 

@@ -36,13 +36,18 @@ class Board
      */
     public function getParameters($params)
     {
+        $regexp = "/cell-[1-3]-[1-3]/";
+        if (!preg_match($regexp, key($params))) {
+            return false;
+        }
+
         $params = explode("-", str_replace("cell-", "", key($params)));
 
         return array_map(function ($item) {
             return --$item;
         }, $params);
     }
-    
+
     public function flipToRight()
     {
         $count = TicTacToe::DIMENSION;
@@ -78,12 +83,14 @@ class Board
      * @param string $x
      * @param string $y
      * @param string $shape
+     * @return bool
      */
     public function setGrid($x, $y, string $shape)
     {
-        if (empty($this->grid[$x][$y])) {
-            $this->grid[$x][$y] = $shape;
+        if (!empty($this->grid[$x][$y])) {
+            return false;
         }
+        $this->grid[$x][$y] = $shape;
     }
 
     /**

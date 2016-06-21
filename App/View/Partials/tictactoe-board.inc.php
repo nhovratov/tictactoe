@@ -15,7 +15,7 @@
                     name='tictactoe[params][cell-$i-$j]' 
                     value='$value' 
                 /></td>";
-                } elseif (!empty($data['message'])) {
+                } elseif (!empty($data['message']) && $data['message'] !== 'error') {
                     echo "<td><input 
                     disabled='disabled'
                     type='submit'
