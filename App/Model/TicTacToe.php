@@ -65,7 +65,7 @@ class TicTacToe
      * checks if the game has ended and returns a message
      * @return mixed
      */
-    public function isFinished()
+    protected function isFinished()
     {
         $result = $this->checkLinear($this->getBoard()->getGrid());
         if ($result) return $result;
