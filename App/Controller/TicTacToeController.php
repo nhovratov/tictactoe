@@ -47,7 +47,7 @@ class TicTacToeController extends Controller
         }
         //Spieler 1 fängt immer an.
         if ($this->tictactoe->getTurn() % 2 == 0 || $this->tictactoe->getTurn() == 0) {
-            if (!$this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates)) {
+            if (!$this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe, $this->tictactoe->getBoard(), $coordinates)) {
                 $this->returnToReferrer('initiatePvp');
                 return false;
             };
@@ -55,15 +55,14 @@ class TicTacToeController extends Controller
         }
         //Spielzug Spieler 2
         else {
-            if (!$this->tictactoe->getPlayer(1)->makeTurn($this->tictactoe->getBoard(), $coordinates)) {
+            if (!$this->tictactoe->getPlayer(1)->makeTurn($this->tictactoe, $this->tictactoe->getBoard(), $coordinates)) {
                 $this->returnToReferrer('initiatePvp');
                 return false;
             };
             $this->tictactoe->setCurrentShape($this->tictactoe->getPlayer(0)->getShape());
         }
         $this->tictactoe->increaseTurn();
-        $message = $this->tictactoe->isFinished();
-
+        $message = $this->tictactoe->checkGameStatus();
         $_SESSION['game'] = serialize($this->tictactoe);
 
         $this->view('home/index', ['tictactoe' => $this->tictactoe, 'message' => $message, 'gamemode' => 'playerVsPlayer', 'reset' => 'initiatePvP']);
@@ -83,17 +82,17 @@ class TicTacToeController extends Controller
             $this->returnToReferrer('initiatePvCom');
             return false;
         }
-        if (!$this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe->getBoard(), $coordinates)) {
+        if (!$this->tictactoe->getPlayer(0)->makeTurn($this->tictactoe, $this->tictactoe->getBoard(), $coordinates)) {
             $this->returnToReferrer('initiatePvCom');
             return false;
         };
         $this->tictactoe->increaseTurn();
-        $message = $this->tictactoe->isFinished();
+        $message = $this->tictactoe->checkGameStatus();
 
         if (empty($message)) { //Check whether the game has aleready ended, so the computer dont need to make a move
             //Computer move
             $this->tictactoe->getPlayer(1)->makeAutoTurn($this->tictactoe->getBoard());
-            $message = $this->tictactoe->isFinished();
+            $message = $this->tictactoe->checkGameStatus();
             $this->tictactoe->increaseTurn();
         }
 

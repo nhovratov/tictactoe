@@ -17,11 +17,15 @@ class Player
         return $this->shape;
     }
     
-    public function makeTurn(Board $board, $coordinates)
+    public function makeTurn(TicTacToe $game, Board $board, $coordinates)
     {
+        if (!$game->isActiveGame()) {
+            return false;
+        }
+
         if (!$board->setGrid($coordinates[0], $coordinates[1], $this->getShape())) {
             return false;
-        };
+        }
         
         return true;
     }

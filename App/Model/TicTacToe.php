@@ -18,6 +18,9 @@ class TicTacToe
 
     /** @var array $shapes */
     protected $shapes = ["X", "O"];
+    
+    /** @var bool $activeGame */
+    protected $activeGame = true;
 
     /**
      * @param $mode
@@ -77,6 +80,17 @@ class TicTacToe
             return $this->getMessage();
         else
             return false;
+    }
+    
+    public function checkGameStatus()
+    {
+        $result = $this->isFinished();
+        
+        if ($result) {
+            $this->activeGame = false;
+        }
+
+        return $result;
     }
 
     /**
@@ -163,4 +177,19 @@ class TicTacToe
         return $this->players;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isActiveGame()
+    {
+        return $this->activeGame;
+    }
+
+    /**
+     * @param boolean $activeGame
+     */
+    public function setActiveGame($activeGame)
+    {
+        $this->activeGame = $activeGame;
+    }
 }
